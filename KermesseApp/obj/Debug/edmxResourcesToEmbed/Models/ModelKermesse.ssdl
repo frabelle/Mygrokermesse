@@ -1,0 +1,1109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KERMESSEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_arqueocaja">
+    <Key>
+      <PropertyRef Name="id_arqueocaja" />
+    </Key>
+    <Property Name="id_arqueocaja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idkermesse" Type="int" Nullable="false" />
+    <Property Name="fecha_arqueo" Type="date" Nullable="false" />
+    <Property Name="gran_total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="usuario_creacion" Type="int" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="usuario_modificacion" Type="int" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+    <Property Name="usuario_eliminacion" Type="int" />
+    <Property Name="fecha_eliminacion" Type="datetime" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_arqueocaja_det">
+    <Key>
+      <PropertyRef Name="id_arqueocaja_det" />
+    </Key>
+    <Property Name="id_arqueocaja_det" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_arqueocaja" Type="int" Nullable="false" />
+    <Property Name="id_moneda" Type="int" Nullable="false" />
+    <Property Name="id_denominacion" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_bonos">
+    <Key>
+      <PropertyRef Name="id_bono" />
+    </Key>
+    <Property Name="id_bono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="float" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_cat_gastos">
+    <Key>
+      <PropertyRef Name="id_cat_gasto" />
+    </Key>
+    <Property Name="id_cat_gasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_cat" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="desc_cat" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_cat_producto">
+    <Key>
+      <PropertyRef Name="id_cat_producto" />
+    </Key>
+    <Property Name="id_cat_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_comunidad">
+    <Key>
+      <PropertyRef Name="id_comunidad" />
+    </Key>
+    <Property Name="id_comunidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="responsable" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="desc_contribucion" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_denominacion">
+    <Key>
+      <PropertyRef Name="id_denominacion" />
+    </Key>
+    <Property Name="id_denominacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_moneda" Type="int" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="valor_letras" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_gastos">
+    <Key>
+      <PropertyRef Name="id_gasto" />
+    </Key>
+    <Property Name="id_gasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_kermesse" Type="int" Nullable="false" />
+    <Property Name="id_cat_gasto" Type="int" Nullable="false" />
+    <Property Name="fecha_gasto" Type="date" Nullable="false" />
+    <Property Name="concepto" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="monto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+    <Property Name="usuario_creacion" Type="int" Nullable="false" />
+    <Property Name="usuario_modificacion" Type="int" />
+    <Property Name="usuario_eliminacion" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+    <Property Name="fecha_eliminacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_ingreso_com">
+    <Key>
+      <PropertyRef Name="id_ingresocom" />
+    </Key>
+    <Property Name="id_ingresocom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_kermesse" Type="int" Nullable="false" />
+    <Property Name="id_comunidad" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cant_producto" Type="int" Nullable="false" />
+    <Property Name="precio_producto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="total_bonos" Type="int" Nullable="false" />
+    <Property Name="usuario_creacion" Type="int" Nullable="false" />
+    <Property Name="usuario_modificacion" Type="int" />
+    <Property Name="usuario_eliminacion" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+    <Property Name="fecha_eliminacion" Type="datetime" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ingresocom_det">
+    <Key>
+      <PropertyRef Name="id_ingresocom_det" />
+    </Key>
+    <Property Name="id_ingresocom_det" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ingresocom" Type="int" Nullable="false" />
+    <Property Name="id_bono" Type="int" Nullable="false" />
+    <Property Name="denominacion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_kermesse">
+    <Key>
+      <PropertyRef Name="id_kermesse" />
+    </Key>
+    <Property Name="id_kermesse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_parroquia" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="fecha_fin" Type="date" Nullable="false" />
+    <Property Name="desc_general" Type="nvarchar" MaxLength="400" />
+    <Property Name="estado" Type="int" Nullable="false" />
+    <Property Name="usuario_creacion" Type="int" Nullable="false" />
+    <Property Name="usuario_modificacion" Type="int" />
+    <Property Name="usuario_eliminacion" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+    <Property Name="fecha_eliminacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_listaprecio">
+    <Key>
+      <PropertyRef Name="id_listaprecio" />
+    </Key>
+    <Property Name="id_listaprecio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_kermesse" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_listaprecio_det">
+    <Key>
+      <PropertyRef Name="id_listaprecio_det" />
+    </Key>
+    <Property Name="id_listaprecio_det" Type="int" Nullable="false" />
+    <Property Name="id_listaprecio" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="precio_venta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_moneda">
+    <Key>
+      <PropertyRef Name="id_moneda" />
+    </Key>
+    <Property Name="id_moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="signo" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_opciones">
+    <Key>
+      <PropertyRef Name="id_opciones" />
+    </Key>
+    <Property Name="id_opciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="opcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_parroquia">
+    <Key>
+      <PropertyRef Name="idparroquia" />
+    </Key>
+    <Property Name="idparroquia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="parroco" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="url_logo" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="sitio_web" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_productos">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_comunidad" Type="int" Nullable="false" />
+    <Property Name="id_cat_producto" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="desc_presentacion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="precio_venta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_rol">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_rol_opcion">
+    <Key>
+      <PropertyRef Name="id_rol_opcion" />
+    </Key>
+    <Property Name="id_rol_opcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="id_opcion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_rol_usuario">
+    <Key>
+      <PropertyRef Name="id_rol_usuario" />
+    </Key>
+    <Property Name="id_rol_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tasacambio">
+    <Key>
+      <PropertyRef Name="id_tasacambio" />
+    </Key>
+    <Property Name="id_tasacambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_monedaO" Type="int" Nullable="false" />
+    <Property Name="id_monedaC" Type="int" Nullable="false" />
+    <Property Name="mes" Type="int" Nullable="false" />
+    <Property Name="anio" Type="int" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tasacambio_det">
+    <Key>
+      <PropertyRef Name="id_tasacambio_det" />
+    </Key>
+    <Property Name="id_tasacambio_det" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tasacambio" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="tipo_cambio" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_arqueocaja' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_arqueocaja">
+    <Key>
+      <PropertyRef Name="id_ArqueoCaja" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="fechaArqueo" />
+      <PropertyRef Name="granTotal" />
+    </Key>
+    <Property Name="id_ArqueoCaja" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fechaArqueo" Type="date" Nullable="false" />
+    <Property Name="granTotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_arqueocajadet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_arqueocajadet">
+    <Key>
+      <PropertyRef Name="id_ArqueoCaja" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subtotal" />
+    </Key>
+    <Property Name="id_ArqueoCaja" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="nvarchar" MaxLength="52" Nullable="false" />
+    <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="subtotal" Type="varchar" MaxLength="44" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_denominacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_denominacion">
+    <Key>
+      <PropertyRef Name="id_Denominacion" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="valor_letras" />
+      <PropertyRef Name="equivalente" />
+    </Key>
+    <Property Name="id_Denominacion" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="valor_letras" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="equivalente" Type="nvarchar" MaxLength="52" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_gastos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_gastos">
+    <Key>
+      <PropertyRef Name="id_gasto" />
+      <PropertyRef Name="Kermesse" />
+      <PropertyRef Name="Categoria_gasto" />
+      <PropertyRef Name="fecha_gasto" />
+      <PropertyRef Name="concepto" />
+      <PropertyRef Name="monto" />
+    </Key>
+    <Property Name="id_gasto" Type="int" Nullable="false" />
+    <Property Name="Kermesse" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Categoria_gasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_gasto" Type="date" Nullable="false" />
+    <Property Name="concepto" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="monto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_ingresocomdet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_ingresocomdet">
+    <Key>
+      <PropertyRef Name="id_ingreso_comunidad_det" />
+      <PropertyRef Name="Id_ingresoM" />
+      <PropertyRef Name="Bono" />
+      <PropertyRef Name="Denominacion" />
+      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="Subtotal" />
+    </Key>
+    <Property Name="id_ingreso_comunidad_det" Type="int" Nullable="false" />
+    <Property Name="Id_ingresoM" Type="int" Nullable="false" />
+    <Property Name="Bono" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Denominacion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_ingresoscom' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_ingresoscom">
+    <Key>
+      <PropertyRef Name="id_ingreso_comunidad" />
+      <PropertyRef Name="Kermesse" />
+      <PropertyRef Name="Comunidad" />
+      <PropertyRef Name="Responsable_com" />
+      <PropertyRef Name="Producto" />
+      <PropertyRef Name="Cantidad_disponible" />
+      <PropertyRef Name="Cantidad_vendida" />
+      <PropertyRef Name="Total_Bonos" />
+    </Key>
+    <Property Name="id_ingreso_comunidad" Type="int" Nullable="false" />
+    <Property Name="Kermesse" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Comunidad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Responsable_com" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Producto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cantidad_disponible" Type="int" Nullable="false" />
+    <Property Name="Cantidad_vendida" Type="int" Nullable="false" />
+    <Property Name="Total_Bonos" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_kermesse' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_kermesse">
+    <Key>
+      <PropertyRef Name="id_kermesse" />
+      <PropertyRef Name="Parroquia" />
+      <PropertyRef Name="Kermesse" />
+      <PropertyRef Name="fecha_inicio" />
+      <PropertyRef Name="fecha_fin" />
+      <PropertyRef Name="estado" />
+    </Key>
+    <Property Name="id_kermesse" Type="int" Nullable="false" />
+    <Property Name="Parroquia" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Kermesse" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="fecha_fin" Type="date" Nullable="false" />
+    <Property Name="desc_general" Type="nvarchar" MaxLength="400" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.VW_Precios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VW_Precios">
+    <Key>
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="descripcion" />
+      <PropertyRef Name="precio_venta" />
+      <PropertyRef Name="Kermesse" />
+      <PropertyRef Name="id_listaprecio_det" />
+    </Key>
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="precio_venta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Kermesse" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="id_listaprecio_det" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.VW_Productos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VW_Productos">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Categoria" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="Precio" />
+      <PropertyRef Name="Estado" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.VW_ProductosPrecios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VW_ProductosPrecios">
+    <Key>
+      <PropertyRef Name="id_producto" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Categoria" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="Costo" />
+      <PropertyRef Name="ListaPrecio" />
+      <PropertyRef Name="PrecioVenta" />
+    </Key>
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Costo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ListaPrecio" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PrecioVenta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_rol_opciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_rol_opciones">
+    <Key>
+      <PropertyRef Name="rol" />
+      <PropertyRef Name="opcion" />
+    </Key>
+    <Property Name="rol" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="opcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_rol_usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_rol_usuario">
+    <Key>
+      <PropertyRef Name="usuario" />
+      <PropertyRef Name="nombres" />
+      <PropertyRef Name="apellidos" />
+      <PropertyRef Name="rol" />
+    </Key>
+    <Property Name="usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="rol" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_tasacambio">
+    <Key>
+      <PropertyRef Name="id_tasaCambio" />
+      <PropertyRef Name="mes" />
+      <PropertyRef Name="anio" />
+    </Key>
+    <Property Name="id_tasaCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="original" Type="nvarchar" MaxLength="50" />
+    <Property Name="cambio" Type="nvarchar" MaxLength="50" />
+    <Property Name="mes" Type="int" Nullable="false" />
+    <Property Name="anio" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_tasacambiodet">
+    <Key>
+      <PropertyRef Name="id_tasaCambio" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="tipoCambio" />
+    </Key>
+    <Property Name="id_tasaCambio" Type="int" Nullable="false" />
+    <Property Name="tasa" Type="nvarchar" MaxLength="133" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="tipoCambio" Type="varchar" MaxLength="44" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_arqueocaja_det_tbl_arqueocaja">
+    <End Role="tbl_arqueocaja" Type="Self.tbl_arqueocaja" Multiplicity="1" />
+    <End Role="tbl_arqueocaja_det" Type="Self.tbl_arqueocaja_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_arqueocaja">
+        <PropertyRef Name="id_arqueocaja" />
+      </Principal>
+      <Dependent Role="tbl_arqueocaja_det">
+        <PropertyRef Name="id_arqueocaja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_arqueocaja_det_tbl_denominacion">
+    <End Role="tbl_denominacion" Type="Self.tbl_denominacion" Multiplicity="1" />
+    <End Role="tbl_arqueocaja_det" Type="Self.tbl_arqueocaja_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_denominacion">
+        <PropertyRef Name="id_denominacion" />
+      </Principal>
+      <Dependent Role="tbl_arqueocaja_det">
+        <PropertyRef Name="id_denominacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_arqueocaja_det_tbl_moneda">
+    <End Role="tbl_moneda" Type="Self.tbl_moneda" Multiplicity="1" />
+    <End Role="tbl_arqueocaja_det" Type="Self.tbl_arqueocaja_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tbl_arqueocaja_det">
+        <PropertyRef Name="id_moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_arqueocaja_tbl_kermesse">
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="1" />
+    <End Role="tbl_arqueocaja" Type="Self.tbl_arqueocaja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_kermesse">
+        <PropertyRef Name="id_kermesse" />
+      </Principal>
+      <Dependent Role="tbl_arqueocaja">
+        <PropertyRef Name="idkermesse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_denominacion_tbl_moneda">
+    <End Role="tbl_moneda" Type="Self.tbl_moneda" Multiplicity="1" />
+    <End Role="tbl_denominacion" Type="Self.tbl_denominacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tbl_denominacion">
+        <PropertyRef Name="id_moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_gastos_tbl_cat_gastos">
+    <End Role="tbl_cat_gastos" Type="Self.tbl_cat_gastos" Multiplicity="1" />
+    <End Role="tbl_gastos" Type="Self.tbl_gastos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cat_gastos">
+        <PropertyRef Name="id_cat_gasto" />
+      </Principal>
+      <Dependent Role="tbl_gastos">
+        <PropertyRef Name="id_cat_gasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_gastos_tbl_kermesse">
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="1" />
+    <End Role="tbl_gastos" Type="Self.tbl_gastos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_kermesse">
+        <PropertyRef Name="id_kermesse" />
+      </Principal>
+      <Dependent Role="tbl_gastos">
+        <PropertyRef Name="id_kermesse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ingreso_com_tbl_comunidad">
+    <End Role="tbl_comunidad" Type="Self.tbl_comunidad" Multiplicity="1" />
+    <End Role="tbl_ingreso_com" Type="Self.tbl_ingreso_com" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_comunidad">
+        <PropertyRef Name="id_comunidad" />
+      </Principal>
+      <Dependent Role="tbl_ingreso_com">
+        <PropertyRef Name="id_comunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ingreso_com_tbl_kermesse">
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="1" />
+    <End Role="tbl_ingreso_com" Type="Self.tbl_ingreso_com" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_kermesse">
+        <PropertyRef Name="id_kermesse" />
+      </Principal>
+      <Dependent Role="tbl_ingreso_com">
+        <PropertyRef Name="id_kermesse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ingreso_com_tbl_productos">
+    <End Role="tbl_productos" Type="Self.tbl_productos" Multiplicity="1" />
+    <End Role="tbl_ingreso_com" Type="Self.tbl_ingreso_com" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_productos">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="tbl_ingreso_com">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ingresocom_det_tbl_bonos">
+    <End Role="tbl_bonos" Type="Self.tbl_bonos" Multiplicity="1" />
+    <End Role="tbl_ingresocom_det" Type="Self.tbl_ingresocom_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_bonos">
+        <PropertyRef Name="id_bono" />
+      </Principal>
+      <Dependent Role="tbl_ingresocom_det">
+        <PropertyRef Name="id_bono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ingresocom_det_tbl_ingreso_com">
+    <End Role="tbl_ingreso_com" Type="Self.tbl_ingreso_com" Multiplicity="1" />
+    <End Role="tbl_ingresocom_det" Type="Self.tbl_ingresocom_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_ingreso_com">
+        <PropertyRef Name="id_ingresocom" />
+      </Principal>
+      <Dependent Role="tbl_ingresocom_det">
+        <PropertyRef Name="id_ingresocom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_kermesse_tbl_parroquia">
+    <End Role="tbl_parroquia" Type="Self.tbl_parroquia" Multiplicity="1" />
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_parroquia">
+        <PropertyRef Name="idparroquia" />
+      </Principal>
+      <Dependent Role="tbl_kermesse">
+        <PropertyRef Name="id_parroquia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_kermesse_tbl_usuario">
+    <End Role="tbl_usuario" Type="Self.tbl_usuario" Multiplicity="1" />
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tbl_kermesse">
+        <PropertyRef Name="usuario_creacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_kermesse_tbl_usuario1">
+    <End Role="tbl_usuario" Type="Self.tbl_usuario" Multiplicity="0..1" />
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tbl_kermesse">
+        <PropertyRef Name="usuario_modificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_kermesse_tbl_usuario2">
+    <End Role="tbl_usuario" Type="Self.tbl_usuario" Multiplicity="0..1" />
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tbl_kermesse">
+        <PropertyRef Name="usuario_eliminacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_listaprecio_det_tbl_listaprecio">
+    <End Role="tbl_listaprecio" Type="Self.tbl_listaprecio" Multiplicity="1" />
+    <End Role="tbl_listaprecio_det" Type="Self.tbl_listaprecio_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_listaprecio">
+        <PropertyRef Name="id_listaprecio" />
+      </Principal>
+      <Dependent Role="tbl_listaprecio_det">
+        <PropertyRef Name="id_listaprecio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_listaprecio_det_tbl_productos">
+    <End Role="tbl_productos" Type="Self.tbl_productos" Multiplicity="1" />
+    <End Role="tbl_listaprecio_det" Type="Self.tbl_listaprecio_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_productos">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="tbl_listaprecio_det">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_listaprecio_tbl_kermesse">
+    <End Role="tbl_kermesse" Type="Self.tbl_kermesse" Multiplicity="1" />
+    <End Role="tbl_listaprecio" Type="Self.tbl_listaprecio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_kermesse">
+        <PropertyRef Name="id_kermesse" />
+      </Principal>
+      <Dependent Role="tbl_listaprecio">
+        <PropertyRef Name="id_kermesse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_productos_tbl_cat_producto">
+    <End Role="tbl_cat_producto" Type="Self.tbl_cat_producto" Multiplicity="1" />
+    <End Role="tbl_productos" Type="Self.tbl_productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cat_producto">
+        <PropertyRef Name="id_cat_producto" />
+      </Principal>
+      <Dependent Role="tbl_productos">
+        <PropertyRef Name="id_cat_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_productos_tbl_comunidad">
+    <End Role="tbl_comunidad" Type="Self.tbl_comunidad" Multiplicity="1" />
+    <End Role="tbl_productos" Type="Self.tbl_productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_comunidad">
+        <PropertyRef Name="id_comunidad" />
+      </Principal>
+      <Dependent Role="tbl_productos">
+        <PropertyRef Name="id_comunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_rol_opcion_tbl_opciones">
+    <End Role="tbl_opciones" Type="Self.tbl_opciones" Multiplicity="1" />
+    <End Role="tbl_rol_opcion" Type="Self.tbl_rol_opcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_opciones">
+        <PropertyRef Name="id_opciones" />
+      </Principal>
+      <Dependent Role="tbl_rol_opcion">
+        <PropertyRef Name="id_opcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_rol_opcion_tbl_rol">
+    <End Role="tbl_rol" Type="Self.tbl_rol" Multiplicity="1" />
+    <End Role="tbl_rol_opcion" Type="Self.tbl_rol_opcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="tbl_rol_opcion">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_rol_usuario_tbl_rol">
+    <End Role="tbl_rol" Type="Self.tbl_rol" Multiplicity="1" />
+    <End Role="tbl_rol_usuario" Type="Self.tbl_rol_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="tbl_rol_usuario">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_rol_usuario_tbl_usuario">
+    <End Role="tbl_usuario" Type="Self.tbl_usuario" Multiplicity="1" />
+    <End Role="tbl_rol_usuario" Type="Self.tbl_rol_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tbl_rol_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_tasacambio_det_tbl_tasacambio">
+    <End Role="tbl_tasacambio" Type="Self.tbl_tasacambio" Multiplicity="1" />
+    <End Role="tbl_tasacambio_det" Type="Self.tbl_tasacambio_det" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_tasacambio">
+        <PropertyRef Name="id_tasacambio" />
+      </Principal>
+      <Dependent Role="tbl_tasacambio_det">
+        <PropertyRef Name="id_tasacambio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_tasacambio_tbl_moneda">
+    <End Role="tbl_moneda" Type="Self.tbl_moneda" Multiplicity="1" />
+    <End Role="tbl_tasacambio" Type="Self.tbl_tasacambio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tbl_tasacambio">
+        <PropertyRef Name="id_monedaO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_tasacambio_tbl_moneda1">
+    <End Role="tbl_moneda" Type="Self.tbl_moneda" Multiplicity="1" />
+    <End Role="tbl_tasacambio" Type="Self.tbl_tasacambio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tbl_tasacambio">
+        <PropertyRef Name="id_monedaC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KERMESSEModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_arqueocaja" EntityType="Self.tbl_arqueocaja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_arqueocaja_det" EntityType="Self.tbl_arqueocaja_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_bonos" EntityType="Self.tbl_bonos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cat_gastos" EntityType="Self.tbl_cat_gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cat_producto" EntityType="Self.tbl_cat_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_comunidad" EntityType="Self.tbl_comunidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_denominacion" EntityType="Self.tbl_denominacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_gastos" EntityType="Self.tbl_gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ingreso_com" EntityType="Self.tbl_ingreso_com" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ingresocom_det" EntityType="Self.tbl_ingresocom_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_kermesse" EntityType="Self.tbl_kermesse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_listaprecio" EntityType="Self.tbl_listaprecio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_listaprecio_det" EntityType="Self.tbl_listaprecio_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_moneda" EntityType="Self.tbl_moneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_opciones" EntityType="Self.tbl_opciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_parroquia" EntityType="Self.tbl_parroquia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_productos" EntityType="Self.tbl_productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_rol" EntityType="Self.tbl_rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_rol_opcion" EntityType="Self.tbl_rol_opcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_rol_usuario" EntityType="Self.tbl_rol_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tasacambio" EntityType="Self.tbl_tasacambio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tasacambio_det" EntityType="Self.tbl_tasacambio_det" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_usuario" EntityType="Self.tbl_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_arqueocaja" EntityType="Self.vw_arqueocaja" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_arqueocaja].[id_ArqueoCaja] AS [id_ArqueoCaja], 
+    [vw_arqueocaja].[nombre] AS [nombre], 
+    [vw_arqueocaja].[fechaArqueo] AS [fechaArqueo], 
+    [vw_arqueocaja].[granTotal] AS [granTotal]
+    FROM [dbo].[vw_arqueocaja] AS [vw_arqueocaja]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_arqueocajadet" EntityType="Self.vw_arqueocajadet" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_arqueocajadet].[id_ArqueoCaja] AS [id_ArqueoCaja], 
+    [vw_arqueocajadet].[nombre] AS [nombre], 
+    [vw_arqueocajadet].[valor] AS [valor], 
+    [vw_arqueocajadet].[cantidad] AS [cantidad], 
+    [vw_arqueocajadet].[subtotal] AS [subtotal]
+    FROM [dbo].[vw_arqueocajadet] AS [vw_arqueocajadet]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_denominacion" EntityType="Self.vw_denominacion" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_denominacion].[id_Denominacion] AS [id_Denominacion], 
+    [vw_denominacion].[nombre] AS [nombre], 
+    [vw_denominacion].[valor] AS [valor], 
+    [vw_denominacion].[valor_letras] AS [valor_letras], 
+    [vw_denominacion].[equivalente] AS [equivalente]
+    FROM [dbo].[vw_denominacion] AS [vw_denominacion]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_gastos" EntityType="Self.vw_gastos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_gastos].[id_gasto] AS [id_gasto], 
+    [vw_gastos].[Kermesse] AS [Kermesse], 
+    [vw_gastos].[Categoria_gasto] AS [Categoria_gasto], 
+    [vw_gastos].[fecha_gasto] AS [fecha_gasto], 
+    [vw_gastos].[concepto] AS [concepto], 
+    [vw_gastos].[monto] AS [monto]
+    FROM [dbo].[vw_gastos] AS [vw_gastos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_ingresocomdet" EntityType="Self.vw_ingresocomdet" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_ingresocomdet].[id_ingreso_comunidad_det] AS [id_ingreso_comunidad_det], 
+    [vw_ingresocomdet].[Id_ingresoM] AS [Id_ingresoM], 
+    [vw_ingresocomdet].[Bono] AS [Bono], 
+    [vw_ingresocomdet].[Denominacion] AS [Denominacion], 
+    [vw_ingresocomdet].[Cantidad] AS [Cantidad], 
+    [vw_ingresocomdet].[Subtotal] AS [Subtotal]
+    FROM [dbo].[vw_ingresocomdet] AS [vw_ingresocomdet]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_ingresoscom" EntityType="Self.vw_ingresoscom" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_ingresoscom].[id_ingreso_comunidad] AS [id_ingreso_comunidad], 
+    [vw_ingresoscom].[Kermesse] AS [Kermesse], 
+    [vw_ingresoscom].[Comunidad] AS [Comunidad], 
+    [vw_ingresoscom].[Responsable_com] AS [Responsable_com], 
+    [vw_ingresoscom].[Producto] AS [Producto], 
+    [vw_ingresoscom].[Cantidad_disponible] AS [Cantidad_disponible], 
+    [vw_ingresoscom].[Cantidad_vendida] AS [Cantidad_vendida], 
+    [vw_ingresoscom].[Total_Bonos] AS [Total_Bonos]
+    FROM [dbo].[vw_ingresoscom] AS [vw_ingresoscom]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_kermesse" EntityType="Self.vw_kermesse" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_kermesse].[id_kermesse] AS [id_kermesse], 
+    [vw_kermesse].[Parroquia] AS [Parroquia], 
+    [vw_kermesse].[Kermesse] AS [Kermesse], 
+    [vw_kermesse].[fecha_inicio] AS [fecha_inicio], 
+    [vw_kermesse].[fecha_fin] AS [fecha_fin], 
+    [vw_kermesse].[desc_general] AS [desc_general], 
+    [vw_kermesse].[estado] AS [estado]
+    FROM [dbo].[vw_kermesse] AS [vw_kermesse]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_Precios" EntityType="Self.VW_Precios" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_Precios].[nombre] AS [nombre], 
+    [VW_Precios].[descripcion] AS [descripcion], 
+    [VW_Precios].[precio_venta] AS [precio_venta], 
+    [VW_Precios].[Kermesse] AS [Kermesse], 
+    [VW_Precios].[id_listaprecio_det] AS [id_listaprecio_det]
+    FROM [dbo].[VW_Precios] AS [VW_Precios]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_Productos" EntityType="Self.VW_Productos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_Productos].[ID] AS [ID], 
+    [VW_Productos].[Nombre] AS [Nombre], 
+    [VW_Productos].[Categoria] AS [Categoria], 
+    [VW_Productos].[Descripcion] AS [Descripcion], 
+    [VW_Productos].[Cantidad] AS [Cantidad], 
+    [VW_Productos].[Precio] AS [Precio], 
+    [VW_Productos].[Estado] AS [Estado]
+    FROM [dbo].[VW_Productos] AS [VW_Productos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_ProductosPrecios" EntityType="Self.VW_ProductosPrecios" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_ProductosPrecios].[id_producto] AS [id_producto], 
+    [VW_ProductosPrecios].[Nombre] AS [Nombre], 
+    [VW_ProductosPrecios].[Categoria] AS [Categoria], 
+    [VW_ProductosPrecios].[Descripcion] AS [Descripcion], 
+    [VW_ProductosPrecios].[Cantidad] AS [Cantidad], 
+    [VW_ProductosPrecios].[Costo] AS [Costo], 
+    [VW_ProductosPrecios].[ListaPrecio] AS [ListaPrecio], 
+    [VW_ProductosPrecios].[PrecioVenta] AS [PrecioVenta]
+    FROM [dbo].[VW_ProductosPrecios] AS [VW_ProductosPrecios]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_rol_opciones" EntityType="Self.vw_rol_opciones" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_rol_opciones].[rol] AS [rol], 
+    [vw_rol_opciones].[opcion] AS [opcion]
+    FROM [dbo].[vw_rol_opciones] AS [vw_rol_opciones]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_rol_usuario" EntityType="Self.vw_rol_usuario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_rol_usuario].[usuario] AS [usuario], 
+    [vw_rol_usuario].[nombres] AS [nombres], 
+    [vw_rol_usuario].[apellidos] AS [apellidos], 
+    [vw_rol_usuario].[rol] AS [rol]
+    FROM [dbo].[vw_rol_usuario] AS [vw_rol_usuario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_tasacambio" EntityType="Self.vw_tasacambio" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_tasacambio].[id_tasaCambio] AS [id_tasaCambio], 
+    [vw_tasacambio].[original] AS [original], 
+    [vw_tasacambio].[cambio] AS [cambio], 
+    [vw_tasacambio].[mes] AS [mes], 
+    [vw_tasacambio].[anio] AS [anio]
+    FROM [dbo].[vw_tasacambio] AS [vw_tasacambio]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_tasacambiodet" EntityType="Self.vw_tasacambiodet" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_tasacambiodet].[id_tasaCambio] AS [id_tasaCambio], 
+    [vw_tasacambiodet].[tasa] AS [tasa], 
+    [vw_tasacambiodet].[fecha] AS [fecha], 
+    [vw_tasacambiodet].[tipoCambio] AS [tipoCambio]
+    FROM [dbo].[vw_tasacambiodet] AS [vw_tasacambiodet]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbl_arqueocaja_det_tbl_arqueocaja" Association="Self.FK_tbl_arqueocaja_det_tbl_arqueocaja">
+      <End Role="tbl_arqueocaja" EntitySet="tbl_arqueocaja" />
+      <End Role="tbl_arqueocaja_det" EntitySet="tbl_arqueocaja_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_arqueocaja_det_tbl_denominacion" Association="Self.FK_tbl_arqueocaja_det_tbl_denominacion">
+      <End Role="tbl_denominacion" EntitySet="tbl_denominacion" />
+      <End Role="tbl_arqueocaja_det" EntitySet="tbl_arqueocaja_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_arqueocaja_det_tbl_moneda" Association="Self.FK_tbl_arqueocaja_det_tbl_moneda">
+      <End Role="tbl_moneda" EntitySet="tbl_moneda" />
+      <End Role="tbl_arqueocaja_det" EntitySet="tbl_arqueocaja_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_arqueocaja_tbl_kermesse" Association="Self.FK_tbl_arqueocaja_tbl_kermesse">
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+      <End Role="tbl_arqueocaja" EntitySet="tbl_arqueocaja" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_denominacion_tbl_moneda" Association="Self.FK_tbl_denominacion_tbl_moneda">
+      <End Role="tbl_moneda" EntitySet="tbl_moneda" />
+      <End Role="tbl_denominacion" EntitySet="tbl_denominacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_gastos_tbl_cat_gastos" Association="Self.FK_tbl_gastos_tbl_cat_gastos">
+      <End Role="tbl_cat_gastos" EntitySet="tbl_cat_gastos" />
+      <End Role="tbl_gastos" EntitySet="tbl_gastos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_gastos_tbl_kermesse" Association="Self.FK_tbl_gastos_tbl_kermesse">
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+      <End Role="tbl_gastos" EntitySet="tbl_gastos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ingreso_com_tbl_comunidad" Association="Self.FK_tbl_ingreso_com_tbl_comunidad">
+      <End Role="tbl_comunidad" EntitySet="tbl_comunidad" />
+      <End Role="tbl_ingreso_com" EntitySet="tbl_ingreso_com" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ingreso_com_tbl_kermesse" Association="Self.FK_tbl_ingreso_com_tbl_kermesse">
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+      <End Role="tbl_ingreso_com" EntitySet="tbl_ingreso_com" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ingreso_com_tbl_productos" Association="Self.FK_tbl_ingreso_com_tbl_productos">
+      <End Role="tbl_productos" EntitySet="tbl_productos" />
+      <End Role="tbl_ingreso_com" EntitySet="tbl_ingreso_com" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ingresocom_det_tbl_bonos" Association="Self.FK_tbl_ingresocom_det_tbl_bonos">
+      <End Role="tbl_bonos" EntitySet="tbl_bonos" />
+      <End Role="tbl_ingresocom_det" EntitySet="tbl_ingresocom_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ingresocom_det_tbl_ingreso_com" Association="Self.FK_tbl_ingresocom_det_tbl_ingreso_com">
+      <End Role="tbl_ingreso_com" EntitySet="tbl_ingreso_com" />
+      <End Role="tbl_ingresocom_det" EntitySet="tbl_ingresocom_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_kermesse_tbl_parroquia" Association="Self.FK_tbl_kermesse_tbl_parroquia">
+      <End Role="tbl_parroquia" EntitySet="tbl_parroquia" />
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_kermesse_tbl_usuario" Association="Self.FK_tbl_kermesse_tbl_usuario">
+      <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_kermesse_tbl_usuario1" Association="Self.FK_tbl_kermesse_tbl_usuario1">
+      <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_kermesse_tbl_usuario2" Association="Self.FK_tbl_kermesse_tbl_usuario2">
+      <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_listaprecio_det_tbl_listaprecio" Association="Self.FK_tbl_listaprecio_det_tbl_listaprecio">
+      <End Role="tbl_listaprecio" EntitySet="tbl_listaprecio" />
+      <End Role="tbl_listaprecio_det" EntitySet="tbl_listaprecio_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_listaprecio_det_tbl_productos" Association="Self.FK_tbl_listaprecio_det_tbl_productos">
+      <End Role="tbl_productos" EntitySet="tbl_productos" />
+      <End Role="tbl_listaprecio_det" EntitySet="tbl_listaprecio_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_listaprecio_tbl_kermesse" Association="Self.FK_tbl_listaprecio_tbl_kermesse">
+      <End Role="tbl_kermesse" EntitySet="tbl_kermesse" />
+      <End Role="tbl_listaprecio" EntitySet="tbl_listaprecio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_productos_tbl_cat_producto" Association="Self.FK_tbl_productos_tbl_cat_producto">
+      <End Role="tbl_cat_producto" EntitySet="tbl_cat_producto" />
+      <End Role="tbl_productos" EntitySet="tbl_productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_productos_tbl_comunidad" Association="Self.FK_tbl_productos_tbl_comunidad">
+      <End Role="tbl_comunidad" EntitySet="tbl_comunidad" />
+      <End Role="tbl_productos" EntitySet="tbl_productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_rol_opcion_tbl_opciones" Association="Self.FK_tbl_rol_opcion_tbl_opciones">
+      <End Role="tbl_opciones" EntitySet="tbl_opciones" />
+      <End Role="tbl_rol_opcion" EntitySet="tbl_rol_opcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_rol_opcion_tbl_rol" Association="Self.FK_tbl_rol_opcion_tbl_rol">
+      <End Role="tbl_rol" EntitySet="tbl_rol" />
+      <End Role="tbl_rol_opcion" EntitySet="tbl_rol_opcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_rol_usuario_tbl_rol" Association="Self.FK_tbl_rol_usuario_tbl_rol">
+      <End Role="tbl_rol" EntitySet="tbl_rol" />
+      <End Role="tbl_rol_usuario" EntitySet="tbl_rol_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_rol_usuario_tbl_usuario" Association="Self.FK_tbl_rol_usuario_tbl_usuario">
+      <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+      <End Role="tbl_rol_usuario" EntitySet="tbl_rol_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_tasacambio_det_tbl_tasacambio" Association="Self.FK_tbl_tasacambio_det_tbl_tasacambio">
+      <End Role="tbl_tasacambio" EntitySet="tbl_tasacambio" />
+      <End Role="tbl_tasacambio_det" EntitySet="tbl_tasacambio_det" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_tasacambio_tbl_moneda" Association="Self.FK_tbl_tasacambio_tbl_moneda">
+      <End Role="tbl_moneda" EntitySet="tbl_moneda" />
+      <End Role="tbl_tasacambio" EntitySet="tbl_tasacambio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_tasacambio_tbl_moneda1" Association="Self.FK_tbl_tasacambio_tbl_moneda1">
+      <End Role="tbl_moneda" EntitySet="tbl_moneda" />
+      <End Role="tbl_tasacambio" EntitySet="tbl_tasacambio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

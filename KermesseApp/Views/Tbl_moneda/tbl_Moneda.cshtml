@@ -1,0 +1,103 @@
+﻿@model IEnumerable<KermesseApp.Models.tbl_moneda>
+
+@{
+    ViewBag.Title = "tbl_Moneda";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Gestión de Monedas</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+        <li class="breadcrumb-item active">Gestión de Moneda</li>
+    </ol>
+    <div class="card mb-4">
+        <img src="https://miviajeanewyork.files.wordpress.com/2016/02/monedas-banner.jpg?w=1390" class="card-img-top" alt="moneda">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <h2>Registro de Monedas</h2>
+
+                <div class="row p-4 no-gutters justify-content-between align-items-center">
+
+                    <div class="col-12 col-md-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search" placeholder="Buscar una moneda">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+
+                        <div style="text-align: right;">
+
+                            <a href="@Url.Action("InsertMoneda")">
+                                <button type="button" class="btn btn-outline-primary btn-md">
+                                    <i class="fas fa-plus"></i> &nbsp;Agregar nueva moneda
+                                </button>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-hover" id="tbl" width="100%" style="text-align: center;" cellspacing="0">
+                            
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Simbolo</th>
+                            <th width="20%">Opciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.signo)
+                                </td>
+                                <td>
+                                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                    <a href="#"
+                                       title="Modificar los datos de la moneda">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        Editar
+                                    </a>
+
+                                    &nbsp;&nbsp;
+
+                                    <a href="@Url.Action("DeleteMoneda", new { id=item.id_moneda})"
+                                       title="Eliminar Moneda">
+                                        <i class="fas fa-trash-alt"></i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot class="table-dark">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+
+                </table>
+                    </div>
+                </div>
+    </div>
+</div>
+

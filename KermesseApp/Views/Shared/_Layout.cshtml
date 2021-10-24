@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1/css/brands.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1/css/solid.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="~/Content/DataTables/Buttons-1.6.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="~/Content/sidebars.css" rel="stylesheet">
+    <link href="~/Content/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                &nbsp;&nbsp;
+                <img src="~/Content/img/logonombre2.png" alt="" width="150" class="d-inline-block align-text-top">
+            </a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle link-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi-person-circle h2"></i>
+                </a>
+                <ul class="dropdown-menu text-small shadow dropdown" aria-labelledby="dropdown">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-auto bg-dark sticky-top">
+                <div class="d-flex flex-sm-column flex-row flex-nowrap bg-dark align-items-center sticky-top">
+                    <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center justify-content-between w-100 px-3 align-items-center">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Home")" class="nav-link link-light py-3 px-2" title="Página de inicio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                                <i class="fas fa-home fs-3"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3 px-2 link-light" title="Arqueo de caja" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <i class="fas fa-cash-register fs-3"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3 px-2 link-light" title="Tasa de cambio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                                <i class="fas fa-file-invoice-dollar fs-3"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("tbl_Moneda", "Tbl_moneda")" class="nav-link py-3 px-2 link-light" title="Moneda" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                                <i class="fas fa-coins fs-3"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3 px-2 link-light" title="Denominaciones" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                                <i class="fas fa-money-bill-alt fs-3"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm p-3 min-vh-100">
+
+                @RenderBody()
+
+                <footer style="text-align:center">
+                    <p>&copy; @DateTime.Now.Year - MYGRO</p>
+                </footer>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="~/Content/sidebar.js"></script>
+<script src="~/Content/DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<!-- Datatable Buttons -->
+<script src="~/Content/DataTables/Buttons-1.6.3/js/dataTables.buttons.min.js"></script>
+
+<!-- Datatable Buttons Print -->
+<script src="~/Content/DataTables/Buttons-1.6.3/js/buttons.html5.min.js"></script>
+<script src="~/Content/DataTables/Buttons-1.6.3/js/buttons.print.min.js"></script>
+
+<!-- Datatable Buttons PDF -->
+<script src="~/Content/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+<script src="~/Content/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+
+<!-- Datatable Buttons Excel -->
+<script src="~/Content/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+
+<style>
+
+    .btn2 {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#search").keyup(function () {
+            _this = this;
+
+            // Show only matching TR, hide rest of them
+            $.each($("#tbl tbody tr"), function () {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl').DataTable({
+            searching: false,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'pdf', text: '<i class="fas fa-file-pdf" style="margin-right:10px"></i>Descargar como PDF', titleAttr: 'PDF', className: 'btn btn2'
+            },
+                { extend: 'excel', text: '<i class="fas fa-file-excel" style="margin-right:10px"></i>Descargar como Excel', titleAttr: 'Excel', className: 'btn btn2' },
+                { extend: 'print', text: '<i class="fas fa-print" style="margin-right:10px"></i>Imprimir tabla', titleAttr: 'Imprimir', className: 'btn btn2' }
+            ],
+
+            initComplete: function () {
+                var btns = $('.dt-button');
+                btns.addClass('btn btn-outline-primary btn-sm');
+                btns.removeClass('dt-button');
+            }
+
+        });
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29a72fde5a024b51816a35623b5acb0a" Name="Diagram1">
+        <EntityTypeShape EntityType="KERMESSEModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_arqueocaja" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_arqueocaja_det" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_bonos" Width="1.5" PointX="5.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_cat_gastos" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_cat_producto" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_comunidad" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_denominacion" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_gastos" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_ingreso_com" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_ingresocom_det" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_kermesse" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_listaprecio" Width="1.5" PointX="5.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_listaprecio_det" Width="1.5" PointX="7.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_moneda" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_opciones" Width="1.5" PointX="3.75" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_parroquia" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_productos" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_rol" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_rol_opcion" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_rol_usuario" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_tasacambio" Width="1.5" PointX="5.25" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_tasacambio_det" Width="1.5" PointX="7.5" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.tbl_usuario" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_arqueocaja" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_arqueocajadet" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_denominacion" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_gastos" Width="1.5" PointX="10.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_ingresocomdet" Width="1.5" PointX="11.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_ingresoscom" Width="1.5" PointX="11.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_kermesse" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.VW_Precios" Width="1.5" PointX="10.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.VW_Productos" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.VW_ProductosPrecios" Width="1.5" PointX="13.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_rol_opciones" Width="1.5" PointX="13.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_rol_usuario" Width="1.5" PointX="14.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_tasacambio" Width="1.5" PointX="14.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_tasacambiodet" Width="1.5" PointX="14.75" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_arqueocaja_det_tbl_arqueocaja" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_arqueocaja_tbl_kermesse" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_arqueocaja_det_tbl_denominacion" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_arqueocaja_det_tbl_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_ingresocom_det_tbl_bonos" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_gastos_tbl_cat_gastos" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_productos_tbl_cat_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_ingreso_com_tbl_comunidad" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_productos_tbl_comunidad" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_denominacion_tbl_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_gastos_tbl_kermesse" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_ingreso_com_tbl_kermesse" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_ingreso_com_tbl_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_ingresocom_det_tbl_ingreso_com" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_kermesse_tbl_parroquia" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_kermesse_tbl_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_kermesse_tbl_usuario1" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_kermesse_tbl_usuario2" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_listaprecio_tbl_kermesse" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_listaprecio_det_tbl_listaprecio" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_listaprecio_det_tbl_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_tasacambio_tbl_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_tasacambio_tbl_moneda1" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_opcion_tbl_opciones" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_opcion_tbl_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_usuario_tbl_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_usuario_tbl_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="KERMESSEModel.FK_tbl_tasacambio_det_tbl_tasacambio" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

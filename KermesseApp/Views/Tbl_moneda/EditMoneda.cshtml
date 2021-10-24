@@ -1,45 +1,82 @@
 ﻿@model KermesseApp.Models.tbl_moneda
 
 @{
-    ViewBag.Title = "EditMoneda";
+    ViewBag.Title = "Edición de Moneda";
 }
 
-<h2>EditMoneda</h2>
+<div class="container-fluid">
+    <h1 class="mt-4">Gestión de Moneda</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="" @Url.Action("Index", "Home") ">Inicio</a></li>
+        <li class="breadcrumb-item "><a href="@Url.Action("tbl_Moneda", "Tbl_moneda")">Gestión de Moneda</a></li>
+        <li class="breadcrumb-item active">Editar una Moneda</li>
+    </ol>
+    <div class="card mb-4">
+        <img src="https://miviajeanewyork.files.wordpress.com/2016/02/monedas-banner.jpg?w=1390" class="card-img-top" alt="moneda">
 
-@using (Html.BeginForm("UpdateMoneda", "Tbl_moneda", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tbl_moneda</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model=>model.id_moneda)
+        <div class="card-body">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="table">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.signo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.signo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.signo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <h2>Registrando una nueva moneda</h2>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <div style="text-align: right;">
+                    <a href="@Url.Action("tbl_Moneda", "Tbl_moneda")" title="Regresar a la página anterior">
+                        <i class="fas fa-arrow-circle-left"></i>
+                        Regresar a la página anterior
+                    </a><br><br>
+                </div>
+
+                @using (Html.BeginForm("UpdateMoneda", "Tbl_moneda", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.id_moneda)
+
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col">
+                                    <label class="small mb-1">Nombre de la Moneda: </label>
+                                    @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col">
+                                    <label class="small mb-1">Simbolo de la Moneda: </label>
+                                    @Html.EditorFor(model => model.signo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.signo, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class="row form-row" style="text-align: center;">
+
+                                <div class="col">
+                                    <input class="btn btn-primary btn-block col-md-12" type="submit" value="Guardar cambios" />
+                                </div>
+
+                                <div class="col">
+                                    <input class="btn btn-outline-danger btn-block col-md-12" type="reset" value="Cancelar" />
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+                    </div>
+
+                 }
+
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+

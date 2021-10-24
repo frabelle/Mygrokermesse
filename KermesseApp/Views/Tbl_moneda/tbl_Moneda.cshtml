@@ -19,9 +19,11 @@
 
                 <h2>Registro de Monedas</h2>
 
+                <div>
+
                 <div class="row p-4 no-gutters justify-content-between align-items-center">
 
-                    <div class="col-12 col-md-8">
+                    <div class="col-md-8">
                         <div class="input-group">
                             <input type="text" class="form-control" id="search" placeholder="Buscar una moneda">
                             <div class="input-group-append">
@@ -31,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-md-4">
 
                         <div style="text-align: right;">
 
@@ -66,10 +68,7 @@
                                     @Html.DisplayFor(modelItem => item.signo)
                                 </td>
                                 <td>
-                                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-                                    <a href="#"
+                                    <a href="@Url.Action("EditMoneda", new { id=item.id_moneda})"
                                        title="Modificar los datos de la moneda">
                                         <i class="fas fa-pencil-alt"></i>
                                         Editar

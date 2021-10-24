@@ -2194,6 +2194,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Tbl_moneda\InsertMoneda.cshtml" />
+    <Content Include="Views\Tbl_moneda\VerMoneda.cshtml" />
+    <Content Include="Views\Tbl_moneda\EditMoneda.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

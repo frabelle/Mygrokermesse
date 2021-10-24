@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -52,6 +53,48 @@ namespace KermesseApp.Controllers
             var list = db.tbl_moneda.ToList();
 
             return View("Tbl_moneda", list);
+        }
+
+        public ActionResult VerMoneda(int id)
+        {
+            var tblmoneda = db.tbl_moneda.Where(x => x.id_moneda == id).First();
+
+            return View(tblmoneda);
+        }
+
+        public ActionResult EditMoneda(int id)
+        {
+            tbl_moneda tbm = db.tbl_moneda.Find(id);
+
+            if(tbm == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(tbm);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UpdateMoneda(tbl_moneda m)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    m.estado = 2;
+                    db.Entry(m).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Tbl_moneda");
+            }
+            catch
+            {
+                return View();
+            }
+
         }
 
     }

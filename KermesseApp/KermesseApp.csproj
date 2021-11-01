@@ -131,7 +131,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Tbl_DenominacionController.cs" />
     <Compile Include="Controllers\Tbl_monedaController.cs" />
+    <Compile Include="Controllers\Tbl_TasaCambioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2029,12 +2031,15 @@
     <Content Include="Content\fontawesome-free-5.15.1\webfonts\fa-solid-900.svg" />
     <Content Include="Content\img\ArqueoIcon.png" />
     <Content Include="Content\img\banner1.png" />
+    <Content Include="Content\img\caja-banner.png" />
+    <Content Include="Content\img\denominacion-banner.png" />
     <Content Include="Content\img\DenominacionIcon.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logoicon.png" />
     <Content Include="Content\img\logonombre.png" />
     <Content Include="Content\img\logonombre2.png" />
     <Content Include="Content\img\MonedaIcon.png" />
+    <Content Include="Content\img\tasa-banner.png" />
     <Content Include="Content\img\TasaIcon.png" />
     <Content Include="Content\sidebars.css" />
     <Content Include="Content\sidebars.js" />
@@ -2196,6 +2201,13 @@
     <Content Include="Views\Tbl_moneda\InsertMoneda.cshtml" />
     <Content Include="Views\Tbl_moneda\VerMoneda.cshtml" />
     <Content Include="Views\Tbl_moneda\EditMoneda.cshtml" />
+    <Content Include="Views\Tbl_Denominacion\Tbl_Denominacion.cshtml" />
+    <Content Include="Views\Tbl_TasaCambio\Tbl_TasaCambio.cshtml" />
+    <Content Include="Views\Tbl_TasaCambio\InsertTasaCambio.cshtml" />
+    <Content Include="Views\Tbl_Denominacion\InsertDenominacion.cshtml" />
+    <Content Include="Views\Tbl_Denominacion\EditDenominacion.cshtml" />
+    <Content Include="Views\Tbl_Denominacion\Vw_Denominacion.cshtml" />
+    <Content Include="Views\Tbl_TasaCambio\Vw_TasaCambio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

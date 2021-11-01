@@ -1,0 +1,122 @@
+﻿@model IEnumerable<KermesseApp.Models.tbl_tasacambio>
+
+@{
+    ViewBag.Title = "Tbl_TasaCambio";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Gestión de Tasa de Cambio</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+        <li class="breadcrumb-item active">Gestión de Tasa de Cambio</li>
+    </ol>
+    <div class="card mb-4">
+        <img src="~/Content/img/tasa-banner.png" class="card-img-top" alt="moneda">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <h2>Registro de Tasa de Cambio</h2>
+
+                <div>
+
+                    <div class="row p-4 no-gutters justify-content-between align-items-center">
+
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="search" placeholder="Buscar una tasa de cambio">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div style="text-align: right;">
+
+                                <a href="@Url.Action("InsertTasaCambio")">
+                                    <button type="button" class="btn btn-outline-primary btn-md">
+                                        <i class="fas fa-plus"></i> &nbsp;Agregar nueva tasa de cambio
+                                    </button>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered table-hover" id="tbl" width="100%" style="text-align: center;" cellspacing="0">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Simbolo</th>
+                                <th>Nombre</th>
+                                <th>Simbolo</th>
+                                <th>Nombre</th>
+                                <th>Simbolo</th>
+                                <th width="20%">Opciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id_tasacambio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id_monedaO)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id_monedaC)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.mes)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.anio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.estado)
+                                </td>
+                                <td>
+                                    <a href=""
+                                       title="Modificar los datos de la tasa de cambio">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        Editar
+                                    </a>
+
+                                    &nbsp;&nbsp;
+
+                                    <a href=""
+                                       title="Eliminar Tasa de Cambio">
+                                        <i class="fas fa-trash-alt"></i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                        <tfoot class="table-dark">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+

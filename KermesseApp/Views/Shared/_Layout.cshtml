@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link py-3 px-2 link-light" title="Tasa de cambio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                            <a href="@Url.Action("Vw_TasaCambio", "Tbl_TasaCambio")" class="nav-link py-3 px-2 link-light" title="Tasa de cambio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
                                 <i class="fas fa-file-invoice-dollar fs-3"></i>
                             </a>
                         </li>
@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link py-3 px-2 link-light" title="Denominaciones" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                            <a href="@Url.Action("Vw_Denominacion", "Tbl_Denominacion")" class="nav-link py-3 px-2 link-light" title="Denominaciones" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
                                 <i class="fas fa-money-bill-alt fs-3"></i>
                             </a>
                         </li>
@@ -153,6 +153,7 @@
         $('#tbl').DataTable({
             searching: false,
             dom: 'Bfrtip',
+            pageLength: 15,
             buttons: [{
                 extend: 'pdf', text: '<i class="fas fa-file-pdf" style="margin-right:10px"></i>Descargar como PDF', titleAttr: 'PDF', className: 'btn btn2'
             },

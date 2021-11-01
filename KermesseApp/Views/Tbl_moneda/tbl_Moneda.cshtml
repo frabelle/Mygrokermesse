@@ -53,7 +53,7 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Simbolo</th>
-                            <th width="20%">Opciones</th>
+                            <th width="10%"></th>
                         </tr>
                     </thead>
 
@@ -70,17 +70,17 @@
                                 <td>
                                     <a href="@Url.Action("EditMoneda", new { id=item.id_moneda})"
                                        title="Modificar los datos de la moneda">
-                                        <i class="fas fa-pencil-alt"></i>
-                                        Editar
-                                    </a>
+                                        <button class="btn btn-sm btn-outline-primary rounded-circle">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button></a>
 
-                                    &nbsp;&nbsp;
+                                    &nbsp;
 
                                     <a href="@Url.Action("DeleteMoneda", new { id=item.id_moneda})"
                                        title="Eliminar Moneda">
-                                        <i class="fas fa-trash-alt"></i>
-                                        Eliminar
-                                    </a>
+                                        <button class="btn btn-sm btn-outline-danger rounded-circle">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button></a>
                                 </td>
                             </tr>
                         }

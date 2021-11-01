@@ -1,0 +1,98 @@
+﻿@model KermesseApp.Models.tbl_denominacion
+
+@{
+    ViewBag.Title = "Edición de Denominación";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Gestión de Denominación</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="" @Url.Action("Index", "Home") ">Inicio</a></li>
+        <li class="breadcrumb-item "><a href="@Url.Action("Vw_Denominacion", "Tbl_Denominacion")">Gestión de Denominación</a></li>
+        <li class="breadcrumb-item active">Registrar una Denominación</li>
+    </ol>
+    <div class="card mb-4">
+
+        <img src="/Content/img/denominacion-banner.png" class="card-img-top" alt="moneda">
+
+        <div class="card-body">
+
+            <div class="table">
+
+                <h2>Registrando una nueva denominación</h2>
+
+                <div style="text-align: right;">
+                    <a href="@Url.Action("Vw_Denominacion", "Tbl_Denominacion")" title="Regresar a la página anterior">
+                        <i class="fas fa-arrow-circle-left"></i>
+                        Regresar a la página anterior
+                    </a><br><br>
+                </div>
+
+                @using (Html.BeginForm("UpdateDenominacion", "Tbl_Denominacion", FormMethod.Post))
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.id_denominacion)
+
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col">
+                                    <label class="small mb-1">Moneda: </label>
+                                    @Html.DropDownList("id_moneda", null, htmlAttributes: new { @class = "form-control form-control-user" })
+                                    @Html.ValidationMessageFor(model => model.id_moneda, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col">
+                                    <label class="small mb-1">Valor de la moneda: </label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend" id="simbolo" name="simbolo">
+                                            <span class="input-group-text" id="simbol" name="simbol">N/A</span>
+                                        </div>
+                                        @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="small mb-1">Valor en letras: </label>
+                                @Html.EditorFor(model => model.valor_letras, new { htmlAttributes = new { @class = "form-control", @style = "text-transform:uppercase;", onkeyup = "javascript:this.value=this.value.toUpperCase();" } })
+                                @Html.ValidationMessageFor(model => model.valor_letras, "", new { @class = "text-danger" })
+                            </div>
+
+                            <br>
+
+                            <div>
+
+                                <div class="row form-row" style="text-align: center;">
+
+                                    <div class="col">
+                                        <input class="btn btn-primary btn-block col-md-12" type="submit" value="Guardar cambios" />
+                                    </div>
+
+                                    <div class="col">
+                                        <input class="btn btn-outline-danger btn-block col-md-12" type="reset" value="Cancelar" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

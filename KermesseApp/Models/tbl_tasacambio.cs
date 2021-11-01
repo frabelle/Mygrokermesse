@@ -11,7 +11,8 @@ namespace KermesseApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_tasacambio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +24,12 @@ namespace KermesseApp.Models
         public int id_tasacambio { get; set; }
         public int id_monedaO { get; set; }
         public int id_monedaC { get; set; }
+
+        [Display(Name = "Mes: ")]
+        [Required(ErrorMessage = "Escriba el nombre de la moneda")]
+        [StringLength(20, ErrorMessage = "La cantidad de caracteres permitida es de 20")]
         public int mes { get; set; }
+
         public int anio { get; set; }
         public int estado { get; set; }
     

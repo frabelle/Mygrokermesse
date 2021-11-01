@@ -23,6 +23,16 @@ namespace KermesseApp.Controllers
         }
 
         [HttpPost]
+        public ActionResult ListarSimbolo(FormCollection fc)
+        {
+            int id = Int32.Parse(fc["moneda"]);
+            var tblmoneda = db.tbl_moneda.Where(x => x.id_moneda == id).First();
+
+            return View(tblmoneda.signo);
+        }
+
+
+        [HttpPost]
         public ActionResult InsertMoneda(tbl_moneda tm)
         {
             if (ModelState.IsValid)

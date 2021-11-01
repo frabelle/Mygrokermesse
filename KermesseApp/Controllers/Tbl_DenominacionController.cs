@@ -75,6 +75,7 @@ namespace KermesseApp.Controllers
             }
             else
             {
+                ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
                 return View(tbd);
             }
         }
@@ -91,6 +92,7 @@ namespace KermesseApp.Controllers
                     db.SaveChanges();
                 }
 
+                ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
                 return RedirectToAction("Vw_Denominacion");
             }
             catch

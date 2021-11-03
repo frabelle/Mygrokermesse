@@ -22,13 +22,15 @@ namespace KermesseApp.Controllers
             return View();
         }
 
+
         [HttpPost]
-        public ActionResult ListarSimbolo(FormCollection fc)
+        public String ListarSimbolo(FormCollection fc)
         {
             int id = Int32.Parse(fc["moneda"]);
             var tblmoneda = db.tbl_moneda.Where(x => x.id_moneda == id).First();
+            var signo = tblmoneda.signo;
 
-            return View(tblmoneda.signo);
+            return signo;
         }
 
 

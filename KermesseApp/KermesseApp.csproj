@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Tbl_ArqueoCajaController.cs" />
     <Compile Include="Controllers\Tbl_DenominacionController.cs" />
     <Compile Include="Controllers\Tbl_monedaController.cs" />
     <Compile Include="Controllers\Tbl_TasaCambioController.cs" />
@@ -2208,6 +2209,7 @@
     <Content Include="Views\Tbl_Denominacion\EditDenominacion.cshtml" />
     <Content Include="Views\Tbl_Denominacion\Vw_Denominacion.cshtml" />
     <Content Include="Views\Tbl_TasaCambio\Vw_TasaCambio.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\Vw_ArqueoCaja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

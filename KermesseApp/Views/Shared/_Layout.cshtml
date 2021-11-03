@@ -49,7 +49,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link py-3 px-2 link-light" title="Arqueo de caja" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                            <a href="@Url.Action("Vw_ArqueoCaja", "Tbl_ArqueoCaja")" class="nav-link py-3 px-2 link-light" title="Arqueo de caja" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <i class="fas fa-cash-register fs-3"></i>
                             </a>
                         </li>
@@ -126,7 +126,6 @@
         border-radius: 4px;
         margin-bottom: 10px;
     }
-
 </style>
 
 <script>
@@ -157,8 +156,8 @@
             buttons: [{
                 extend: 'pdf', text: '<i class="fas fa-file-pdf" style="margin-right:10px"></i>Descargar como PDF', titleAttr: 'PDF', className: 'btn btn2'
             },
-                { extend: 'excel', text: '<i class="fas fa-file-excel" style="margin-right:10px"></i>Descargar como Excel', titleAttr: 'Excel', className: 'btn btn2' },
-                { extend: 'print', text: '<i class="fas fa-print" style="margin-right:10px"></i>Imprimir tabla', titleAttr: 'Imprimir', className: 'btn btn2' }
+            { extend: 'excel', text: '<i class="fas fa-file-excel" style="margin-right:10px"></i>Descargar como Excel', titleAttr: 'Excel', className: 'btn btn2' },
+            { extend: 'print', text: '<i class="fas fa-print" style="margin-right:10px"></i>Imprimir tabla', titleAttr: 'Imprimir', className: 'btn btn2' }
             ],
 
             initComplete: function () {

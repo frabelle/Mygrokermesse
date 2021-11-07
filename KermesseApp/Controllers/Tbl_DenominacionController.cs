@@ -103,5 +103,20 @@ namespace KermesseApp.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult FilterDenominacion(String cadena)
+        {
+            if (String.IsNullOrEmpty(cadena))
+            {
+                var list = db.vw_denominacion.ToList();
+                return View("Vw_Denominacion", list);
+            }
+            else
+            {
+                var listFiltrada = db.vw_denominacion.Where(x => x.nombre.Contains(cadena) || x.valor_letras.Contains(cadena) || x.equivalente.Contains(cadena));
+                return View("Vw_Denominacion", listFiltrada);
+            }
+        }
+
     }
 }

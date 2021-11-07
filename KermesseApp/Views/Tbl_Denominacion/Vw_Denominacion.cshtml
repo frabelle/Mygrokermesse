@@ -20,92 +20,100 @@
                 <h2>Registro de Denominaciones</h2>
 
                 <div>
+                    @using (Html.BeginForm("FilterDenominacion", "Tbl_Denominacion", FormMethod.Post))
+                    {
 
-                    <div class="row p-4 no-gutters justify-content-between align-items-center">
+                        <div class="row p-4 no-gutters justify-content-between align-items-center">
 
-                        <div class="col-md-8">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="search" placeholder="Buscar una denominación">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    @Html.TextBox("cadena", null, new { @class = "form-control", @placeholder = "Buscar una denominación", @id = "search" })
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
 
-                            <div style="text-align: right;">
+                            <div class="col-md-4">
 
-                                <a href="@Url.Action("InsertDenominacion", "Tbl_Denominacion")">
-                                    <button type="button" class="btn btn-outline-primary btn-md">
-                                        <i class="fas fa-plus"></i> &nbsp;Agregar nueva denominación
-                                    </button>
-                                </a>
+                                <div style="text-align: right;">
 
+                                    <a href="@Url.Action("InsertDenominacion", "Tbl_Denominacion")">
+                                        <button type="button" class="btn btn-outline-primary btn-md">
+                                            <i class="fas fa-plus"></i> &nbsp;Agregar nueva denominación
+                                        </button>
+                                    </a>
+
+                                </div>
                             </div>
+
+                            
+
                         </div>
+                    }
+
+                        <table class="table table-bordered table-hover" id="tbl" width="100%" style="text-align: center;" cellspacing="0">
+
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Valor</th>
+                                    <th>Valor en Letras</th>
+                                    <th>Equivalente</th>
+                                    <th width="10%"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.valor)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.valor_letras)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.equivalente)
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("EditDenominacion", "Tbl_Denominacion", new { id=item.id_Denominacion})"
+                                               title="Modificar los datos de la denominación">
+                                                <button class="btn btn-sm btn-outline-primary rounded-circle">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </button></a>
+
+                                            &nbsp;
+
+                                            <a href="@Url.Action("DeleteDenominacion", "Tbl_Denominacion", new { id=item.id_Denominacion})"
+                                               title="Eliminar Moneda">
+                                                <button class="btn btn-sm btn-outline-danger rounded-circle">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot class="table-dark">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+
+                        </table>
                     </div>
-
-                    <table class="table table-bordered table-hover" id="tbl" width="100%" style="text-align: center;" cellspacing="0">
-
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Valor</th>
-                                <th>Valor en Letras</th>
-                                <th>Equivalente</th>
-                                <th width="10%"></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.valor)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.valor_letras)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.equivalente)
-                                </td>
-                                <td>
-                                    <a href="@Url.Action("EditDenominacion", "Tbl_Denominacion", new { id=item.id_Denominacion})"
-                                       title="Modificar los datos de la denominación">
-                                        <button class="btn btn-sm btn-outline-primary rounded-circle">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </button></a>
-
-                                    &nbsp;
-
-                                    <a href="@Url.Action("DeleteDenominacion", "Tbl_Denominacion", new { id=item.id_Denominacion})"
-                                       title="Eliminar Moneda">
-                                        <button class="btn btn-sm btn-outline-danger rounded-circle">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button></a>
-                                </td>
-                            </tr>
-                            }
-
-                        </tbody>
-                        <tfoot class="table-dark">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-
-                    </table>
-                </div>
             </div>
         </div>
     </div>

@@ -21,5 +21,12 @@ namespace KermesseApp.Controllers
         {
             return View(db.vw_arqueocaja.ToList());
         }
+
+        public ActionResult InsertArqueoCaja()
+        {
+            ViewBag.idkermesse = new SelectList(db.tbl_kermesse, "id_kermesse", "nombre");
+            return View();
+        }
+
     }
 }

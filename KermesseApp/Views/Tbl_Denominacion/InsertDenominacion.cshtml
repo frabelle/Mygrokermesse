@@ -47,12 +47,14 @@
                                         <div class="input-group-prepend" id="simbolo" name="simbolo">
                                             <span class="input-group-text" id="simbol" name="simbol">N/A</span>
                                         </div>
-                                        @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control", @min = "0.01", @value = "0.00"} })
                                     </div>
                                     @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
                                 </div>
 
                             </div>
+
+                            <br>
 
                             <div class="form-group">
                                 <label class="small mb-1">Valor en letras: </label>

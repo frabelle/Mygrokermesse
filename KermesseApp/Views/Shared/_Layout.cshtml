@@ -152,7 +152,7 @@
         $('#tbl').DataTable({
             searching: false,
             dom: 'Bfrtip',
-            pageLength: 15,
+            pageLength: 10,
             buttons: [{
                 extend: 'pdf', text: '<i class="fas fa-file-pdf" style="margin-right:10px"></i>Descargar como PDF', titleAttr: 'PDF', className: 'btn btn2'
             },
@@ -169,6 +169,35 @@
         });
     });
 
+</script>
+
+<script>
+    function agregarFila() {
+
+        var mon = $('#cbmoneda option:selected').text();
+        var sim = $('#simbol').text();
+        var den = $('#denominacion option:selected').text();
+        var cant = $('#cantidad').val();
+
+        var m1 = document.getElementById("denominacion").value;
+        var m2 = document.getElementById("cantidad").value;
+        var sub = parseFloat(den) * parseFloat(m2);
+
+        document.getElementById("tablaprueba").insertRow(-1).innerHTML =
+            '<td>' + mon + '</td>' +
+            '<td>' + sim + ' ' + den + '</td>' +
+            '<td>' + cant + '</td>' +
+            '<td>' + sim + ' ' + sub + '</td>' +
+            '<td><button type="button" class="btn btn-sm btn-danger borrar"><i class="fas fa-trash-alt"></i></button></td>';
+
+    }
+
+    function eliminarFila() {
+        $(document).on('click', '.borrar', function (event) {
+            event.preventDefault();
+            $(this).closest('tr').remove();
+        });
+    }
 </script>
 
 </html>

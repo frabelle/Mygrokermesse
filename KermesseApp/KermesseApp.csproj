@@ -2210,6 +2210,7 @@
     <Content Include="Views\Tbl_Denominacion\Vw_Denominacion.cshtml" />
     <Content Include="Views\Tbl_TasaCambio\Vw_TasaCambio.cshtml" />
     <Content Include="Views\Tbl_ArqueoCaja\Vw_ArqueoCaja.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\InsertArqueoCaja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

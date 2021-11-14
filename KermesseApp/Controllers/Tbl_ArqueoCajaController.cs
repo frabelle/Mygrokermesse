@@ -26,7 +26,7 @@ namespace KermesseApp.Controllers
         {
             ViewBag.id_kermesse = new SelectList(db.tbl_kermesse, "id_kermesse", "nombre");
             ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
-            ViewBag.id_denominacion = new SelectList(db.vw_denominacion, "id_Denominacion", "valor");
+            ViewBag.id_denominacion = new SelectList(db.vw_cordoba, "id_denominacion", "valor");
 
             return View();
         }

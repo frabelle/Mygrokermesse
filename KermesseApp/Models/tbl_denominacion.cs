@@ -11,8 +11,7 @@ namespace KermesseApp.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbl_denominacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,18 +21,8 @@ namespace KermesseApp.Models
         }
     
         public int id_denominacion { get; set; }
-
-        [Display(Name = "Moneda: ")]
-        [Required(ErrorMessage = "Seleccione una moneda")]
         public int id_moneda { get; set; }
-
-        [Display(Name = "Valor de la moneda: ")]
-        [Required(ErrorMessage = "Escriba el valor de la moneda")]
         public decimal valor { get; set; }
-
-        [Display(Name = "Valor en letras: ")]
-        [Required(ErrorMessage = "Escriba el valor en letras de la moneda")]
-        [StringLength(250, ErrorMessage = "La cantidad de caracteres permitida es de 250")]
         public string valor_letras { get; set; }
         public int estado { get; set; }
     

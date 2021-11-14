@@ -299,6 +299,16 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_arqueocajadet' no tiene defi
     <Property Name="subtotal" Type="varchar" MaxLength="44" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_cordoba' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_cordoba">
+    <Key>
+      <PropertyRef Name="id_denominacion" />
+      <PropertyRef Name="valor" />
+    </Key>
+    <Property Name="id_denominacion" Type="int" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_denominacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_denominacion">
     <Key>
@@ -877,6 +887,12 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
     [vw_arqueocajadet].[cantidad] AS [cantidad], 
     [vw_arqueocajadet].[subtotal] AS [subtotal]
     FROM [dbo].[vw_arqueocajadet] AS [vw_arqueocajadet]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_cordoba" EntityType="Self.vw_cordoba" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_cordoba].[id_denominacion] AS [id_denominacion], 
+    [vw_cordoba].[valor] AS [valor]
+    FROM [dbo].[vw_cordoba] AS [vw_cordoba]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_denominacion" EntityType="Self.vw_denominacion" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

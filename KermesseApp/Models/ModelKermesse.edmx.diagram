@@ -71,6 +71,7 @@
         <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_usuario_tbl_rol" ManuallyRouted="false" />
         <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_usuario_tbl_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="KERMESSEModel.FK_tbl_tasacambio_det_tbl_tasacambio" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_cordoba" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

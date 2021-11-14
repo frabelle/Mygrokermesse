@@ -453,5 +453,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_cordoba">
+      <EntityTypeMapping TypeName="KERMESSEModel.vw_cordoba">
+        <MappingFragment StoreEntitySet="vw_cordoba">
+          <ScalarProperty Name="id_denominacion" ColumnName="id_denominacion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

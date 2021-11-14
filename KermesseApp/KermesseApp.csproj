@@ -231,6 +231,9 @@
     <Compile Include="Models\vw_arqueocajadet.cs">
       <DependentUpon>ModelKermesse.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vw_cordoba.cs">
+      <DependentUpon>ModelKermesse.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\vw_denominacion.cs">
       <DependentUpon>ModelKermesse.tt</DependentUpon>
     </Compile>

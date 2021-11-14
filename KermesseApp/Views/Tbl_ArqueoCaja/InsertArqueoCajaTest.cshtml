@@ -38,11 +38,13 @@
                                 <div class="col">
                                     <label class="small mb-1">Nombre de Kermesse: </label>
                                     @Html.DropDownListFor(model => model.Item1.idkermesse, ViewBag.id_kermesse as SelectList, "Seleccione...", htmlAttributes: new { @class = "form-select", @id = "kermesse", @name = "kermesse" })
+                                    @Html.ValidationMessageFor(model => model.Item1.idkermesse, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="col">
                                     <label class="small mb-1">Fecha de Arqueo: </label>
                                     @Html.EditorFor(model => model.Item1.fecha_arqueo, new { htmlAttributes = new { @class = "form-control", @type = "date", @id = "fecha", @name = "fecha" } })
+                                    @Html.ValidationMessageFor(model => model.Item1.fecha_arqueo, "", new { @class = "text-danger" })
                                 </div>
 
                             </div>

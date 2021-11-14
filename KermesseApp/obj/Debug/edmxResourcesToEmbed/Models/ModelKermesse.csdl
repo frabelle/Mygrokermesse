@@ -1015,5 +1015,14 @@
       <End Role="tbl_tasacambio" EntitySet="tbl_tasacambio" />
       <End Role="tbl_tasacambio_det" EntitySet="tbl_tasacambio_det" />
     </AssociationSet>
+    <EntitySet Name="vw_cordoba" EntityType="KERMESSEModel.vw_cordoba" />
   </EntityContainer>
+  <EntityType Name="vw_cordoba">
+    <Key>
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="id_denominacion" />
+    </Key>
+    <Property Name="valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="id_denominacion" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

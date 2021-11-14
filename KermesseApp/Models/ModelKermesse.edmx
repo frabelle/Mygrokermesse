@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KERMESSEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KERMESSEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -302,6 +302,16 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_arqueocajadet' no tiene defi
           <Property Name="valor" Type="nvarchar" MaxLength="52" Nullable="false" />
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="subtotal" Type="varchar" MaxLength="44" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_cordoba' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_cordoba">
+          <Key>
+            <PropertyRef Name="id_denominacion" />
+            <PropertyRef Name="valor" />
+          </Key>
+          <Property Name="id_denominacion" Type="int" Nullable="false" />
+          <Property Name="valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_denominacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -883,6 +893,12 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
     [vw_arqueocajadet].[subtotal] AS [subtotal]
     FROM [dbo].[vw_arqueocajadet] AS [vw_arqueocajadet]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_cordoba" EntityType="Self.vw_cordoba" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_cordoba].[id_denominacion] AS [id_denominacion], 
+    [vw_cordoba].[valor] AS [valor]
+    FROM [dbo].[vw_cordoba] AS [vw_cordoba]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_denominacion" EntityType="Self.vw_denominacion" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_denominacion].[id_Denominacion] AS [id_Denominacion], 
@@ -1111,8 +1127,7 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
             <End Role="tbl_tasacambio" EntitySet="tbl_tasacambio" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KERMESSEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2131,7 +2146,16 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
             <End Role="tbl_tasacambio" EntitySet="tbl_tasacambio" />
             <End Role="tbl_tasacambio_det" EntitySet="tbl_tasacambio_det" />
           </AssociationSet>
+          <EntitySet Name="vw_cordoba" EntityType="KERMESSEModel.vw_cordoba" />
         </EntityContainer>
+        <EntityType Name="vw_cordoba">
+          <Key>
+            <PropertyRef Name="valor" />
+            <PropertyRef Name="id_denominacion" />
+          </Key>
+          <Property Name="valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="id_denominacion" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2587,6 +2611,14 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
                 <ScalarProperty Name="tasa" ColumnName="tasa" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="tipoCambio" ColumnName="tipoCambio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_cordoba">
+            <EntityTypeMapping TypeName="KERMESSEModel.vw_cordoba">
+              <MappingFragment StoreEntitySet="vw_cordoba">
+                <ScalarProperty Name="id_denominacion" ColumnName="id_denominacion" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

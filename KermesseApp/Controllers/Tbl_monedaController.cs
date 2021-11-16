@@ -14,7 +14,7 @@ namespace KermesseApp.Controllers
         // GET: Tbl_moneda
         public ActionResult Tbl_moneda()
         {
-            return View(db.tbl_moneda.ToList());
+            return View(db.tbl_moneda.Where(model => model.estado!=3));
         }
 
         public ActionResult InsertMoneda()
@@ -57,14 +57,43 @@ namespace KermesseApp.Controllers
 
         public ActionResult DeleteMoneda(int id)
         {
-            tbl_moneda tbm = new tbl_moneda();
-            tbm = db.tbl_moneda.Find(id);
-            db.tbl_moneda.Remove(tbm);
-            db.SaveChanges();
+            tbl_moneda tc = new tbl_moneda();
+            tc = db.tbl_moneda.Find(id);
+            this.DeleteMoneda(tc);
 
-            var list = db.tbl_moneda.ToList();
+            return RedirectToAction("Tbl_moneda");
+        }
 
-            return View("Tbl_moneda", list);
+        //public ActionResult DeleteMoneda(int id)
+        //{
+        //    tbl_moneda tbm = new tbl_moneda();
+        //    tbm = db.tbl_moneda.Find(id);
+        //    db.tbl_moneda.Remove(tbm);
+        //    db.SaveChanges();
+
+        //    var list = db.tbl_moneda.ToList();
+
+        //    return View("Tbl_moneda", list);
+        //}
+
+        [HttpPost]
+        public ActionResult DeleteMoneda(tbl_moneda m)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    m.estado = 3;
+                    db.Entry(m).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Tbl_moneda");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult VerMoneda(int id)

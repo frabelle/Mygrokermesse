@@ -1,6 +1,7 @@
 ﻿using KermesseApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,13 +23,43 @@ namespace KermesseApp.Controllers
             return View(db.vw_arqueocaja.ToList());
         }
 
-        public ActionResult InsertArqueoCajaTest()
+        public ActionResult InsertArqueoCaja()
         {
             ViewBag.id_kermesse = new SelectList(db.tbl_kermesse, "id_kermesse", "nombre");
             ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
             ViewBag.id_denominacion = new SelectList(db.vw_cordoba, "id_denominacion", "valor");
 
             return View();
+        }
+
+        public ActionResult DeleteArqueoCaja(int id)
+        {
+            tbl_arqueocaja tc = new tbl_arqueocaja();
+            tc = db.tbl_arqueocaja.Find(id);
+            this.DeleteArqueoCaja(tc);
+
+            return RedirectToAction("Vw_ArqueoCaja");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteArqueoCaja(tbl_arqueocaja tac)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    tac.estado = 3;
+                    db.Entry(tac).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Vw_ArqueoCaja");
+            }
+            catch
+            {
+                return View();
+                throw;
+            }
         }
 
         //[HttpPost]
@@ -69,18 +100,18 @@ namespace KermesseApp.Controllers
         //    return View("Vw_ArqueoCaja", list);
         //}
 
-        public ActionResult InsertArqueoCaja(int kermesse, DateTime fecha_arqueo, string total, tbl_arqueocaja_det[] detalle)
+        public ActionResult GuardarArqueoCaja(int kermesse, DateTime fecha_arqueo, string total, tbl_arqueocaja_det[] detalle)
         {
             ViewBag.id_kermesse = new SelectList(db.tbl_kermesse, "id_kermesse", "nombre");
             ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
             ViewBag.id_denominacion = new SelectList(db.vw_denominacion, "id_Denominacion", "valor");
 
-            string result = "Error! Order Is Not Complete!";
             tbl_arqueocaja arqueo = new tbl_arqueocaja();
             arqueo.idkermesse = kermesse;
             arqueo.fecha_arqueo = fecha_arqueo;
             arqueo.gran_total = Decimal.Parse(total);
             arqueo.fecha_creacion = DateTime.Now;
+            arqueo.estado = 1;
             db.tbl_arqueocaja.Add(arqueo);
 
             foreach (var item in detalle)
@@ -94,7 +125,8 @@ namespace KermesseApp.Controllers
                 db.tbl_arqueocaja_det.Add(det);
             }
             db.SaveChanges();
-            result = "Success! Order Is Complete!";
+
+            String result = "¡El arqueo caja ha sido guardado satisfactoriamente!";
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

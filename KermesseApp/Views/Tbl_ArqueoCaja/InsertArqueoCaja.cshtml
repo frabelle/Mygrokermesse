@@ -1,9 +1,9 @@
 ﻿@model Tuple<KermesseApp.Models.tbl_arqueocaja, KermesseApp.Models.tbl_arqueocaja_det>
 
-
 @{
-    ViewBag.Title = "InsertArqueoCaja";
+    ViewBag.Title = "InsertArqueoCajaTest";
 }
+
 
 <div class="container-fluid">
     <h1 class="mt-4">Gestión de Arqueo de Caja</h1>
@@ -28,22 +28,22 @@
                     </a><br><br>
                 </div>
 
-                @using (Html.BeginForm("InsertArqueoCaja", "Tbl_ArqueoCaja", FormMethod.Post))
-                {
+                <form>
                     <div class="form-row">
                         <div class="col-md-12">
 
                             <div class="row">
 
+
                                 <div class="col">
                                     <label class="small mb-1">Nombre de Kermesse: </label>
-                                    @Html.DropDownListFor(model => model.Item1.idkermesse, ViewBag.id_kermesse as SelectList, "Seleccione...", htmlAttributes: new { @class = "form-select" })
+                                    @Html.DropDownListFor(model => model.Item1.idkermesse, ViewBag.id_kermesse as SelectList, "Seleccione...", htmlAttributes: new { @class = "form-select", @id = "kermesse", @name = "kermesse" })
                                     @Html.ValidationMessageFor(model => model.Item1.idkermesse, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="col">
                                     <label class="small mb-1">Fecha de Arqueo: </label>
-                                    @Html.EditorFor(model => model.Item1.fecha_arqueo, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                                    @Html.EditorFor(model => model.Item1.fecha_arqueo, new { htmlAttributes = new { @class = "form-control", @type = "date", @id = "fecha", @name = "fecha" } })
                                     @Html.ValidationMessageFor(model => model.Item1.fecha_arqueo, "", new { @class = "text-danger" })
                                 </div>
 
@@ -63,27 +63,26 @@
 
                                         <div class="col">
                                             <label class="small mb-1">Moneda: </label>
-                                            @Html.DropDownListFor(model => model.Item2.id_moneda, ViewBag.id_moneda as SelectList, "Seleccione...", htmlAttributes: new { @class = "form-select", @name = "cbmoneda", @id = "cbmoneda" })
-                                            @Html.ValidationMessageFor(model => model.Item2.id_moneda, "", new { @class = "text-danger" })
+                                            <select class="form-select" name="cbmoneda" id="cbmoneda" disabled>
+                                                <option value="" selected>Córdoba</option>
+                                            </select>
                                         </div>
 
                                         <div class="col">
                                             <label class="small mb-1">Denominación: </label>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend" id="simbolo" name="simbolo">
-                                                    <span class="input-group-text" id="simbol" name="simbol">N/A</span>
+                                                    <span class="input-group-text" id="simbol" name="simbol">C$</span>
                                                 </div>
                                                 @Html.DropDownListFor(model => model.Item2.id_denominacion, ViewBag.id_denominacion as SelectList, "Seleccione...", htmlAttributes: new { @class = "form-select", @name = "denominacion", @id = "denominacion" })
-                                                @Html.ValidationMessageFor(model => model.Item2.id_denominacion, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
 
                                         <div class="col">
                                             <label class="small mb-1">Cantidad: </label>
                                             <div class="input-group mb-3">
-                                                @Html.EditorFor(model => model.Item2.cantidad, new { htmlAttributes = new 
-                                                    { @class = "form-control", @type = "number", @id="cantidad", @name="cantidad", @step=1.00, @value=0, @placeholder="0", @title= "Ingrese la cantidad" } })
-                                                @Html.ValidationMessageFor(model => model.Item2.cantidad, "", new { @class = "text-danger" })
+                                                <input class="form-control" name="cantidad" id="cantidad" type="number" step='1.00'
+                                                       value='0' placeholder="0" title="Ingrese la cantidad" />
                                             </div>
                                         </div>
 
@@ -94,7 +93,6 @@
                                                     <i class="fas fa-plus"></i>&nbsp;Agregar
                                                 </button>
                                             </div>
-
                                         </div>
 
                                     </div><br>
@@ -109,6 +107,8 @@
                                                     <th>Denominación</th>
                                                     <th>Cantidad</th>
                                                     <th>Subtotal</th>
+                                                    <th hidden>ID Denominacion</th>
+                                                    <th hidden>Valor</th>
                                                     <th width="15%">Acción</th>
                                                 </tr>
                                             </thead>
@@ -147,8 +147,8 @@
                                                 <span class="input-group-text">C$</span>
                                             </div>
 
-                                            @Html.EditorFor(model => model.Item1.gran_total, new { htmlAttributes = new { @class = "form-control", @disabled = "true" } })
-                                            @Html.ValidationMessageFor(model => model.Item1.gran_total, "", new { @class = "text-danger" })
+                                            <input class="form-control" name="valor" id="valor" type="number" step='1.00'
+                                                   value='0.00' placeholder="0.00" title="Ingrese su salario" disabled />
 
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
                                 <div class="row" style="text-align: center;">
 
                                     <div class="col">
-                                        <input class="btn btn-primary btn-block col-md-12" type="submit" value="Registrar nuevo arqueo" />
+                                        <input id="saveArqueoCaja" class="btn btn-primary btn-block col-md-12" type="submit" value="Registrar nuevo arqueo" />
                                     </div>
 
                                     <div class="col">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
 
-                }
+                </form>
 
             </div>
         </div>

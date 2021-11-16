@@ -310,7 +310,7 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_cordoba' no tiene definida n
             <PropertyRef Name="id_denominacion" />
             <PropertyRef Name="valor" />
           </Key>
-          <Property Name="id_denominacion" Type="int" Nullable="false" />
+          <Property Name="id_denominacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:

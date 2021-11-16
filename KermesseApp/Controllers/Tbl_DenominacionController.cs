@@ -46,29 +46,59 @@ namespace KermesseApp.Controllers
                 ModelState.Clear();
             }
 
-            ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
+            ViewBag.id_moneda = new SelectList(db.tbl_moneda.Where(model => model.estado!=3), "id_moneda", "nombre");
 
             var list = db.vw_denominacion.ToList();
             
             return View("Vw_Denominacion", list);
         }
 
+        //public ActionResult DeleteDenominacion(int id)
+        //{
+        //    tbl_denominacion tbd = new tbl_denominacion();
+        //    tbd = db.tbl_denominacion.Find(id);
+        //    db.tbl_denominacion.Remove(tbd);
+        //    db.SaveChanges();
+
+        //    var list = db.vw_denominacion.ToList();
+
+        //    return View("Vw_Denominacion", list);
+        //}
+
         public ActionResult DeleteDenominacion(int id)
         {
-            tbl_denominacion tbd = new tbl_denominacion();
-            tbd = db.tbl_denominacion.Find(id);
-            db.tbl_denominacion.Remove(tbd);
-            db.SaveChanges();
+            tbl_denominacion tc = new tbl_denominacion();
+            tc = db.tbl_denominacion.Find(id);
+            this.DeleteDenominacion(tc);
 
-            var list = db.vw_denominacion.ToList();
+            return RedirectToAction("Vw_Denominacion");
+        }
 
-            return View("Vw_Denominacion", list);
+        [HttpPost]
+        public ActionResult DeleteDenominacion(tbl_denominacion td)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    td.estado = 3;
+                    db.Entry(td).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Vw_Denominacion");
+            }
+            catch
+            {
+                return View();
+                throw;
+            }
         }
 
         public ActionResult EditDenominacion(int id)
         {
             tbl_denominacion tbd = db.tbl_denominacion.Find(id);
-            ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
+            ViewBag.id_moneda = new SelectList(db.tbl_moneda.Where(model => model.estado!=3), "id_moneda", "nombre");
 
             if (tbd == null)
             {
@@ -93,7 +123,7 @@ namespace KermesseApp.Controllers
                     db.SaveChanges();
                 }
 
-                ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
+                ViewBag.id_moneda = new SelectList(db.tbl_moneda.Where(model => model.estado != 3), "id_moneda", "nombre");
                 return RedirectToAction("Vw_Denominacion");
             }
             catch

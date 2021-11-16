@@ -130,5 +130,54 @@ namespace KermesseApp.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult VerArqueoCaja(int id)
+        {
+            var details = db.vw_arqueocajadet.Where(x => x.id_ArqueoCaja == id);
+
+            vw_arqueocaja tac = new vw_arqueocaja();
+            tac = db.vw_arqueocaja.Where(x => x.id_ArqueoCaja == id).First();
+
+            ViewBag.kermesse = tac.nombre;
+            ViewBag.fecha = tac.fechaArqueo;
+            ViewBag.total = tac.granTotal;
+
+            return View(details);
+        }
+
+        public ActionResult EditArqueoCaja(int id)
+        {
+            vw_arqueocajadet tbm = db.vw_arqueocajadet.Find(id);
+
+            if (tbm == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(tbm);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UpdateArqueoCaja(tbl_moneda m)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    m.estado = 2;
+                    db.Entry(m).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Tbl_moneda");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
     }
 }

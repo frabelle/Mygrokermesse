@@ -54,7 +54,20 @@
 
                                 <div class="card-body">
 
-                                    <h4>Detalle de arqueo de caja</h4>
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <h4>Detalle de arqueo de caja</h4>
+                                        </div>
+
+                                        <div class="col-4" style="text-align:right">
+                                            <a href= @Url.Action("Vw_ArqueoCajaDet", "Tbl_ArqueoCaja", new {id = ViewBag.id_arqueocaja})
+                                               title="Modificar el detalle de arqueo de caja"> 
+                                                <i class="fas fa-pencil-alt"></i> Editar detalle de caja
+                                            </a>
+                                        </div>
+
+                                    </div>
 
                                     <br>
 
@@ -70,7 +83,7 @@
                                                     <th>Subtotal</th>
                                                 </tr>
                                             </thead>
-                                            
+
                                             @foreach (var item in Model)
                                             {
                                                 <tbody>
@@ -82,15 +95,15 @@
                                                     </tr>
                                                 </tbody>
                                             }
-                                                <thead class="table-dark">
-                                                    <tr>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                            
+                                            <thead class="table-dark">
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+
                                         </table>
                                     </div>
                                 </div>
@@ -114,7 +127,7 @@
                                                 <span class="input-group-text">C$</span>
                                             </div>
 
-                                            <input class="form-control" name="valor" id="valor" type="number" step='1.00'
+                                            <input class="form-control" type="number" step='1.00'
                                                    value=@ViewBag.total placeholder="0.00" title="Ingrese su salario" disabled />
 
                                         </div>

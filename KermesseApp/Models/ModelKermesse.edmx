@@ -292,12 +292,14 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_arqueocajadet' no tiene defi
         <EntityType Name="vw_arqueocajadet">
           <Key>
             <PropertyRef Name="id_ArqueoCaja" />
+            <PropertyRef Name="id_arqueocaja_det" />
             <PropertyRef Name="nombre" />
             <PropertyRef Name="valor" />
             <PropertyRef Name="cantidad" />
             <PropertyRef Name="subtotal" />
           </Key>
           <Property Name="id_ArqueoCaja" Type="int" Nullable="false" />
+          <Property Name="id_arqueocaja_det" Type="int" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="valor" Type="nvarchar" MaxLength="52" Nullable="false" />
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -887,6 +889,7 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
           <EntitySet Name="vw_arqueocajadet" EntityType="Self.vw_arqueocajadet" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_arqueocajadet].[id_ArqueoCaja] AS [id_ArqueoCaja], 
+    [vw_arqueocajadet].[id_arqueocaja_det] AS [id_arqueocaja_det], 
     [vw_arqueocajadet].[nombre] AS [nombre], 
     [vw_arqueocajadet].[valor] AS [valor], 
     [vw_arqueocajadet].[cantidad] AS [cantidad], 
@@ -1474,12 +1477,14 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
             <PropertyRef Name="valor" />
             <PropertyRef Name="cantidad" />
             <PropertyRef Name="subtotal" />
+            <PropertyRef Name="id_arqueocaja_det" />
           </Key>
           <Property Name="id_ArqueoCaja" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="valor" Type="String" MaxLength="52" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="subtotal" Type="String" MaxLength="44" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_arqueocaja_det" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vw_denominacion">
           <Key>
@@ -2467,6 +2472,7 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
           <EntitySetMapping Name="vw_arqueocajadet">
             <EntityTypeMapping TypeName="KERMESSEModel.vw_arqueocajadet">
               <MappingFragment StoreEntitySet="vw_arqueocajadet">
+                <ScalarProperty Name="id_arqueocaja_det" ColumnName="id_arqueocaja_det" />
                 <ScalarProperty Name="id_ArqueoCaja" ColumnName="id_ArqueoCaja" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="valor" ColumnName="valor" />

@@ -306,6 +306,7 @@
     <EntitySetMapping Name="vw_arqueocajadet">
       <EntityTypeMapping TypeName="KERMESSEModel.vw_arqueocajadet">
         <MappingFragment StoreEntitySet="vw_arqueocajadet">
+          <ScalarProperty Name="id_arqueocaja_det" ColumnName="id_arqueocaja_det" />
           <ScalarProperty Name="id_ArqueoCaja" ColumnName="id_ArqueoCaja" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="valor" ColumnName="valor" />

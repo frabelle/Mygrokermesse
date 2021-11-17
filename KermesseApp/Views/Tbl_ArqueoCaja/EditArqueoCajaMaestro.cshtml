@@ -1,0 +1,108 @@
+﻿@model KermesseApp.Models.tbl_arqueocaja
+
+@{
+    ViewBag.Title = "EditArqueoCajaMaestro";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Gestión de Arqueo de Caja</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="" @Url.Action("Index", "Home") ">Inicio</a></li>
+        <li class="breadcrumb-item "><a href="@Url.Action("Vw_ArqueoCaja", "Tbl_ArqueoCaja")">Gestión de Arqueo de Cajas</a></li>
+        <li class="breadcrumb-item active">Modificando un Arqueo de Caja</li>
+    </ol>
+    <div class="card mb-4">
+        <img src="/Content/img/caja-banner.png" class="card-img-top" alt="moneda">
+
+        <div class="card-body">
+
+            <div class="table">
+
+                <h2>Modificando un arqueo de caja</h2>
+
+                <div style="text-align: right;">
+                    <a href="@Url.Action("Vw_ArqueoCaja", "Tbl_ArqueoCaja")" title="Regresar a la página anterior">
+                        <i class="fas fa-arrow-circle-left"></i>
+                        Regresar a la página anterior
+                    </a><br><br>
+                </div>
+
+                @using (Html.BeginForm("UpdateArqueoCajaMaestro", "Tbl_ArqueoCaja", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id_arqueocaja)
+
+                    <div class="form-row">
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col">
+                                    <label class="small mb-1">Nombre de Kermesse: </label>
+                                    @Html.DropDownListFor(model => model.idkermesse, null, htmlAttributes: new { @class = "form-select" })
+                                    @Html.ValidationMessageFor(model => model.idkermesse, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col">
+                                    <label class="small mb-1">Fecha de Arqueo: </label>
+                                    @Html.EditorFor(model => model.fecha_arqueo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.fecha_arqueo, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class="form-group">
+
+                                <div class="row">
+
+                                    <div class="col"></div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1">Total de Arqueo: </label>
+                                        <div class="input-group mb-3">
+
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">C$</span>
+                                            </div>
+
+                                            @Html.EditorFor(model => model.gran_total, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                                            @Html.ValidationMessageFor(model => model.gran_total, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            @Html.EditorFor(model => model.fecha_creacion, new { htmlAttributes = new { @class = "form-control", @hidden = "true" } })
+                            @Html.ValidationMessageFor(model => model.fecha_creacion, "", new { @class = "text-danger" })
+
+                            <br>
+
+                            <div class="form-group">
+                                <div class="row" style="text-align: center;">
+
+                                    <div class="col">
+                                        <input class="btn btn-primary btn-block col-md-12" type="submit" value="Guardar cambios" />
+                                    </div>
+
+                                    <div class="col">
+                                        <input class="btn btn-outline-danger btn-block col-md-12" type="reset" value="Cancelar" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -2215,6 +2215,11 @@
     <Content Include="Views\Tbl_ArqueoCaja\Vw_ArqueoCaja.cshtml" />
     <Content Include="Views\Tbl_ArqueoCaja\InsertArqueoCaja.cshtml" />
     <Content Include="Views\Tbl_ArqueoCaja\VerArqueoCaja.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\EditArqueoCaja.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\EditArqueoCajaMaestro.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\EditArqueoCajaMaestro2.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\Vw_ArqueoCajaDet.cshtml" />
+    <Content Include="Views\Tbl_ArqueoCaja\InsertArqueoCajaDet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

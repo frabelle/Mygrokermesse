@@ -19,5 +19,6 @@ namespace KermesseApp.Models
         public string valor { get; set; }
         public decimal cantidad { get; set; }
         public string subtotal { get; set; }
+        public int id_arqueocaja_det { get; set; }
     }
 }

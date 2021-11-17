@@ -22,7 +22,6 @@ namespace KermesseApp.Controllers
             return View(db.vw_denominacion.ToList());
         }
 
-
         public ActionResult InsertDenominacion()
         {
             ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");

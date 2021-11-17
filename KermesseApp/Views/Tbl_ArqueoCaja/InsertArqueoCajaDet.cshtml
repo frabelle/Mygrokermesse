@@ -1,0 +1,91 @@
+﻿@model KermesseApp.Models.tbl_arqueocaja_det
+
+@{
+    ViewBag.Title = "InsertArqueoCajaDet";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Gestión de Arqueo de Caja</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="" @Url.Action("Index", "Home") ">Inicio</a></li>
+        <li class="breadcrumb-item "><a href="@Url.Action("Vw_ArqueoCaja", "Tbl_ArqueoCaja")">Gestión de Arqueo de Cajas</a></li>
+        <li class="breadcrumb-item active">Registrar un Arqueo de Caja</li>
+    </ol>
+    <div class="card mb-4">
+        <img src="/Content/img/caja-banner.png" class="card-img-top" alt="moneda">
+
+        <div class="card-body">
+
+            <div class="table">
+
+                <h2>Registrando un nuevo detalle de arqueo de caja</h2>
+
+                <div style="text-align: right;">
+                    <a href="@Url.Action("Vw_ArqueoCaja", "Tbl_ArqueoCaja")" title="Regresar a la página anterior">
+                        <i class="fas fa-arrow-circle-left"></i>
+                        Regresar a la página anterior
+                    </a><br><br>
+                </div>
+
+                @using (Html.BeginForm("InsertArqueoCajaDet", "Tbl_ArqueoCaja", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col">
+                                    <label class="small mb-1">Moneda: </label>
+                                    <select class="form-select" name="cbmoneda" id="cbmoneda" disabled>
+                                        <option value="" selected>Córdoba</option>
+                                    </select>
+                                </div>
+
+                                <div class="col">
+                                    <label class="small mb-1">Denominación: </label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend" id="simbolo" name="simbolo">
+                                            <span class="input-group-text" id="simbol" name="simbol">C$</span>
+                                        </div>
+                                        @Html.DropDownListFor(model => model.id_denominacion, ViewBag.id_denominacion as SelectList, "Seleccione...", htmlAttributes: new { @class = "form-select", @name = "denominacion", @id = "denominacion" })
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <label class="small mb-1">Cantidad: </label>
+                                    <div class="input-group mb-3">
+                                        @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @type="number" } })
+                                        @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                @Html.EditorFor(model => model.id_arqueocaja, new { htmlAttributes = new { @class = "form-control", @id="arqueocaja", @name="arqueocaja", @hidden="true" } })
+                                @Html.ValidationMessageFor(model => model.id_arqueocaja, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <br>
+
+                            <div class="row form-row" style="text-align: center;">
+
+                                <div class="col">
+                                    <input class="btn btn-primary btn-block col-md-12" type="submit" value="Registrar nuevo detalle de arqueo caja" />
+                                </div>
+
+                                <div class="col">
+                                    <input class="btn btn-outline-danger btn-block col-md-12" type="reset" value="Cancelar" />
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

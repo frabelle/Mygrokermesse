@@ -72,7 +72,7 @@
                                         @Html.DisplayFor(modelItem => item.granTotal)
                                     </td>
                                     <td>
-                                        <a href=""
+                                        <a href="@Url.Action("EditArqueoCajaMaestro", new { id=item.id_ArqueoCaja})"
                                            title="Modificar los datos de la tasa de cambio">
                                             <button class="btn btn-sm btn-outline-primary rounded-circle">
                                                 <i class="fas fa-pencil-alt"></i>

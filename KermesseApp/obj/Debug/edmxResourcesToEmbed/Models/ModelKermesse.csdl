@@ -343,12 +343,14 @@
       <PropertyRef Name="valor" />
       <PropertyRef Name="cantidad" />
       <PropertyRef Name="subtotal" />
+      <PropertyRef Name="id_arqueocaja_det" />
     </Key>
     <Property Name="id_ArqueoCaja" Type="Int32" Nullable="false" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="valor" Type="String" MaxLength="52" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="subtotal" Type="String" MaxLength="44" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_arqueocaja_det" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="vw_denominacion">
     <Key>

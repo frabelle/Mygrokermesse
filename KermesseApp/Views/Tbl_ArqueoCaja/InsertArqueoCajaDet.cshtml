@@ -54,7 +54,7 @@
                                 <div class="col">
                                     <label class="small mb-1">Cantidad: </label>
                                     <div class="input-group mb-3">
-                                        @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @type="number" } })
+                                        @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @type="number", @min="0" } })
                                         @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

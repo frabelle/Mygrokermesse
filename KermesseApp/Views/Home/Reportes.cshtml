@@ -1,0 +1,307 @@
+﻿@{
+    ViewBag.Title = "Reportes";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Reportes del sistema</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+        <li class="breadcrumb-item active">Reportes del sistema</li>
+    </ol>
+    <div class="card mb-4">
+        <img src="/Content/img/reportes-banner.png" class="card-img-top" alt="moneda">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <h2>Generador de reportes</h2>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-file-alt"></i>&nbsp; Ingresos de un Evento</h5>
+                                <p class="card-text">Reporte de ingresos filtrado por kermesse y comunidad</p>
+                                <button class="btn btn-outline-primary" type="button" id="btnShowModalIngresos">Generar reporte</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-file-alt"></i>&nbsp; Egresos de un Evento</h5>
+                                <p class="card-text">Reporte de gastos filtrado por kermesse</p>
+                                <button class="btn btn-outline-primary" type="button" id="btnShowModalEgresos">Generar reporte</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-file-alt"></i>&nbsp; Listas de Precio</h5>
+                                <p class="card-text">Reporte de listas de precio filtrados por producto y lista</p>
+                                <button class="btn btn-outline-primary" type="button" id="btnShowModalListaPrecio">Generar reporte</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-file-alt"></i>&nbsp; Arqueo de Caja</h5>
+                                <p class="card-text">Reporte de arqueo de caja filtrado por kermesse</p>
+                                <button class="btn btn-outline-primary" type="button" id="btnShowModalArqueo">Generar reporte</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="row">
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-file-alt"></i>&nbsp; Resumen de Ingresos y Egresos</h5>
+                                <p class="card-text">Reporte para ver utilidad, pérdida y faltante de una kermesse</p>
+                                <button class="btn btn-outline-primary" type="button" id="btnShowModalResumen">Generar reporte</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                    </div>
+
+                </div>
+
+                <br>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal de Ingresos -->
+    <div class="modal fade" id="ModalIngresos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Generar reporte de ingresos de un evento</h5>
+                    <button id="close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <label class="small mb-2">Seleccione las opciones por las que desea filtrar</label>
+
+                    <br>
+
+                    <div class="col">
+                        <label class="small mb-1">Comunidad: </label>
+                        @Html.DropDownList("nombre", ViewBag.id_comunidad as SelectList,"Todos los registros", htmlAttributes: new { @class = "form-select", @id = "cbxComunidad", @name = "cbxComunidad" })
+                    </div>
+
+                    <div class="col" style="margin:2px;"></div>
+
+                    <div class="col">
+                        <label class="small mb-1">Kermesse: </label>
+                        @Html.DropDownList("nombre", ViewBag.id_kermeses as SelectList, "Todos los registros", htmlAttributes: new { @class = "form-select", @id = "cbxKermesse", @name = "cbxKermesse" })
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="text-align:right;">
+
+                    <div class="col-2">
+                        <select class="form-select" name="tipo" id="tipo" required>
+                            <option value="PDF">PDF</option>
+                            <option value="Word">Word</option>
+                            <option value="Excel">Excel</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3.5">
+                        <button type="button" class="btn btn-outline-primary">Generar reporte</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Egresos -->
+    <div class="modal fade" id="ModalEgresos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Generar reporte de egresos de un evento</h5>
+                    <button id="closeEgresos" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <label class="small mb-2">Seleccione la opción por la que desea filtrar</label>
+
+                    <br>
+
+                    <div class="col">
+                        <label class="small mb-1">Kermesse: </label>
+                        @Html.DropDownList("nombre", ViewBag.id_kermeses as SelectList,"Todos los registros", htmlAttributes: new { @class = "form-select", @id = "cbxKermesse", @name = "cbxKermesse" })
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-2">
+                        <select class="form-select" name="tipo" id="tipo" required>
+                            <option value="PDF">PDF</option>
+                            <option value="Word">Word</option>
+                            <option value="Excel">Excel</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3.5">
+                        <button type="submit" class="btn btn-outline-primary">Generar reporte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Lista Precio -->
+    <div class="modal fade" id="ModalListaPrecio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Generar reporte de lista de precio</h5>
+                    <button id="closeLista" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <label class="small mb-2">Seleccione las opciones por las que desea filtrar</label>
+
+                    <br>
+
+                    <div class="col">
+                        <label class="small mb-1">Lista: </label>
+                        @Html.DropDownList("nombre", ViewBag.id_listas as SelectList, "Todos los registros", htmlAttributes: new { @class = "form-select", @id = "cbxLista", @name = "cbxLista" })
+                    </div>
+
+                    <div class="col" style="margin:2px;"></div>
+
+                    <div class="col">
+                        <label class="small mb-1">Producto: </label>
+                        @Html.DropDownList("nombre", ViewBag.id_producto as SelectList, "Todos los registros", htmlAttributes: new { @class = "form-select", @id = "cbxProducto", @name = "cbxProducto" })
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-2">
+                        <select class="form-select" name="tipo" id="tipo" required>
+                            <option value="PDF">PDF</option>
+                            <option value="Word">Word</option>
+                            <option value="Excel">Excel</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3.5">
+                        <button type="submit" class="btn btn-outline-primary">Generar reporte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Arqueo de Caja -->
+    <div class="modal fade" id="ModalArqueo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Generar reporte de arqueo de caja</h5>
+                    <button id="closeArqueo" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                @using (Html.BeginForm("VerRptArqueoCaja", "Tbl_ArqueoCaja", FormMethod.Post))
+                {
+                    <div class="modal-body">
+
+                        <label class="small mb-2">Seleccione la opción por la que desea filtrar</label>
+
+                        <br>
+
+                        <div class="col">
+                            <label class="small mb-1">Kermesse: </label>
+                            @Html.DropDownList("nombre", ViewBag.id_kermesse as SelectList, htmlAttributes: new { @class = "form-select", @id = "cbxKermesseA", @name = "cbxKermesseA" })
+                        </div>
+
+                        <input id="kermesseArqueo" name="kermesseArqueo" type="text" hidden/>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <div class="col-2">
+                            <select class="form-select" name="tipo" id="tipo" required>
+                                <option value="PDF">PDF</option>
+                                <option value="Word">Word</option>
+                                <option value="Excel">Excel</option>
+                            </select>
+                        </div>
+
+                        <div class="col-3.5">
+                            <button type="submit" class="btn btn-outline-primary">Generar reporte</button>
+                        </div>
+                        
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Ingresos y Egresos -->
+    <div class="modal fade" id="ModalResumen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Generar reporte de ingresos y egresos</h5>
+                    <button id="closeResumen" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <label class="small mb-2">Seleccione la opción por la que desea filtrar</label>
+
+                    <br>
+
+                    <div class="col">
+                        <label class="small mb-1">Kermesse: </label>
+                        @Html.DropDownList("nombre", ViewBag.id_kermeses as SelectList, htmlAttributes: new { @class = "form-select", @id = "cbxKermesse", @name = "cbxKermesse" })
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-2">
+                        <select class="form-select" name="tipo" id="tipo" required>
+                            <option value="PDF">PDF</option>
+                            <option value="Word">Word</option>
+                            <option value="Excel">Excel</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3.5">
+                        <button type="submit" class="btn btn-outline-primary">Generar reporte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

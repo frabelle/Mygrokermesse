@@ -37,7 +37,7 @@
 
                             <div style="text-align: right;">
 
-                                <a href="@Url.Action("InsertArqueoCajaDet", "Tbl_ArqueoCaja",new {id = ViewBag.id_arqueocaja})">a
+                                <a href="@Url.Action("InsertArqueoCajaDet", "Tbl_ArqueoCaja",new {id = ViewBag.id_arqueocaja})">
                                     <button type="button" class="btn btn-outline-primary btn-md">
                                         <i class="fas fa-plus"></i> &nbsp;Agregar un nuevo detalle
                                     </button>
@@ -69,7 +69,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.subtotal)</td>
                                 <td>
                                     <a href="@Url.Action("DeleteArqueoCajaDet", new { id=item.id_arqueocaja_det})"
-                                       title="Eliminar Arqueo de Caja">
+                                       title="Eliminar Detalle de Arqueo de Caja">
                                         <button class="btn btn-sm btn-outline-danger rounded-circle">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>

@@ -1,7 +1,9 @@
 ﻿using KermesseApp.Models;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,6 +30,7 @@ namespace KermesseApp.Controllers
             ViewBag.id_kermesse = new SelectList(db.tbl_kermesse, "id_kermesse", "nombre");
             ViewBag.id_moneda = new SelectList(db.tbl_moneda, "id_moneda", "nombre");
             ViewBag.id_denominacion = new SelectList(db.vw_cordoba, "id_denominacion", "valor");
+            ViewBag.fecha = DateTime.Now.ToString();
 
             return View();
         }
@@ -225,6 +228,46 @@ namespace KermesseApp.Controllers
             var list = db.vw_arqueocaja.ToList();
 
             return View("Vw_ArqueoCaja", list);
+        }
+
+        [HttpPost]
+        public ActionResult VerRptArqueoCaja(String tipo, String kermesseArqueo)
+        {
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "rptArqueoCaja.rdlc");
+            rpt.ReportPath = ruta;
+
+            ReportDataSource rd = null;
+            ReportDataSource rd2 = null;
+
+            if (kermesseArqueo == null)
+            {
+                RedirectToAction("Vw_ArqueoCaja");   
+            }
+            else
+            {
+                vw_arqueocaja arqueo = new vw_arqueocaja();
+                tbl_arqueocaja tbl_arqueo = new tbl_arqueocaja();
+
+                arqueo = db.vw_arqueocaja.Where(x => x.nombre == kermesseArqueo).First();
+                //arqueo = db.vw_arqueocaja.Where(x => x.id_ArqueoCaja == tbl_arqueo.id_arqueocaja).First();
+                var encabezado = db.vw_arqueocaja.Where(x => x.id_ArqueoCaja == arqueo.id_ArqueoCaja);
+                rd = new ReportDataSource("dsRptArqueoCaja", encabezado);
+
+                var detalle = db.vw_arqueocajadet.Where(x => x.id_ArqueoCaja == arqueo.id_ArqueoCaja);
+                rd2 = new ReportDataSource("dsRptArqueoCajaDet", detalle);
+            }
+
+            rpt.DataSources.Add(rd);
+            rpt.DataSources.Add(rd2);
+
+            //String tipo = "PDF";
+            var b = rpt.Render(tipo, null, out mt, out enc, out f, out s, out w);
+            return new FileContentResult(b, mt);
         }
 
     }

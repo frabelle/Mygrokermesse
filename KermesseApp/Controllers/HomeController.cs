@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KermesseApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,9 +21,15 @@ namespace KermesseApp.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        private KERMESSEEntities db = new KERMESSEEntities();
+
+        public ActionResult Reportes()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.id_comunidad = new SelectList(db.tbl_comunidad, "id_comunidad", "nombre");
+            ViewBag.id_kermeses = new SelectList(db.tbl_kermesse, "id_kermesse", "nombre");
+            ViewBag.id_kermesse = new SelectList(db.vw_arqueocaja, "nombre", "nombre");
+            ViewBag.id_listas = new SelectList(db.tbl_listaprecio, "id_listaprecio", "nombre");
+            ViewBag.id_producto = new SelectList(db.tbl_productos, "id_producto", "nombre");
 
             return View();
         }

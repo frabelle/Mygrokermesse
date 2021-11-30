@@ -50,7 +50,6 @@ namespace KermesseApp.Models
         public virtual DbSet<tbl_tasacambio_det> tbl_tasacambio_det { get; set; }
         public virtual DbSet<tbl_usuario> tbl_usuario { get; set; }
         public virtual DbSet<vw_arqueocaja> vw_arqueocaja { get; set; }
-        public virtual DbSet<vw_arqueocajadet> vw_arqueocajadet { get; set; }
         public virtual DbSet<vw_denominacion> vw_denominacion { get; set; }
         public virtual DbSet<vw_gastos> vw_gastos { get; set; }
         public virtual DbSet<vw_ingresocomdet> vw_ingresocomdet { get; set; }
@@ -59,10 +58,12 @@ namespace KermesseApp.Models
         public virtual DbSet<VW_Precios> VW_Precios { get; set; }
         public virtual DbSet<VW_Productos> VW_Productos { get; set; }
         public virtual DbSet<VW_ProductosPrecios> VW_ProductosPrecios { get; set; }
-        public virtual DbSet<vw_rol_opciones> vw_rol_opciones { get; set; }
         public virtual DbSet<vw_rol_usuario> vw_rol_usuario { get; set; }
         public virtual DbSet<vw_tasacambio> vw_tasacambio { get; set; }
         public virtual DbSet<vw_tasacambiodet> vw_tasacambiodet { get; set; }
         public virtual DbSet<vw_cordoba> vw_cordoba { get; set; }
+        public virtual DbSet<vw_arqueocajadet> vw_arqueocajadet { get; set; }
+        public virtual DbSet<vw_resumen> vw_resumen { get; set; }
+        public virtual DbSet<vw_rol_opciones> vw_rol_opciones { get; set; }
     }
 }

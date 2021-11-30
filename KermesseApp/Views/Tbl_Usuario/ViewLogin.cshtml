@@ -1,0 +1,100 @@
+﻿@{ Layout = null;
+    ViewBag.Title = "Login"; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Autenticación</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1/css/brands.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1/css/solid.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="~/Content/DataTables/Buttons-1.6.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="~/Content/sidebars.css" rel="stylesheet">
+    <link href="~/Content/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+<body class="bg-primary" style="background-image: url('/Content//img//fondologin.png'); background-size: cover;">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+
+
+                                <div class="card-header" style="background-color:#BDBDBD ;"><h3 class="text-center font-weight-light my-4">MYGRO KERMESSE</h3></div>
+                                <div class="card-body">
+                                    @using (Html.BeginForm("Login", "Tbl_Usuario", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        <h4>Ingrese sus datos de acceso</h4>
+
+                                        @ViewBag.error;
+
+                                        <hr />
+
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                        <div class="form-group">
+                                            <label for="username" class="small mb-1">Usuario:</label>
+                                            <div class="col-md-10">
+                                                @Html.TextBox("username", null, new { @class = "form-control py-2", placeholder = "Usuario", required = "required" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password" class="small mb-1">Contraseña:</label>
+                                            <div class="col-md-10">
+                                                @Html.TextBox("password", null, new { @class = "form-control py-2", type = "password", placeholder = "Contraseña", required = "required" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                                <label class="custom-control-label" for="rememberPasswordCheck">Recordar contraseña</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <a class="small" href="password.html">¿Olvidaste tu Contraseña?</a>
+                                            <input class="btn btn-primary" type="submit" value="Entrar" />
+                                        </div>
+
+                                    </div>}
+                                    <div class="card-footer text-center">
+                                        <div class="small"><a href="index.html">Ingresar como invitado</a></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <!-- jAlert js -->
+    <script src="jAlert/dist/jAlert.min.js"></script>
+    <script src="jAlert/dist/jAlert-functions.min.js">//optional!!</script>
+
+
+</body>
+</html>

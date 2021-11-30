@@ -15,10 +15,10 @@ namespace KermesseApp.Models
     public partial class vw_arqueocajadet
     {
         public int id_ArqueoCaja { get; set; }
+        public int id_arqueocaja_det { get; set; }
         public string nombre { get; set; }
         public string valor { get; set; }
         public decimal cantidad { get; set; }
-        public string subtotal { get; set; }
-        public int id_arqueocaja_det { get; set; }
+        public decimal subtotal { get; set; }
     }
 }

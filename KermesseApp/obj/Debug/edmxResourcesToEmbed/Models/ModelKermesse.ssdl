@@ -298,7 +298,7 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_arqueocajadet' no tiene defi
     <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="valor" Type="nvarchar" MaxLength="52" Nullable="false" />
     <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="subtotal" Type="varchar" MaxLength="44" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_cordoba' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -462,14 +462,24 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.VW_ProductosPrecios' no tiene d
     <Property Name="PrecioVenta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_resumen' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_resumen">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_rol_opciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_rol_opciones">
     <Key>
       <PropertyRef Name="rol" />
       <PropertyRef Name="opcion" />
+      <PropertyRef Name="id_rol" />
     </Key>
     <Property Name="rol" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="opcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_rol_usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -981,10 +991,16 @@ advertencia 6002: La tabla o vista 'KERMESSE.dbo.vw_tasacambiodet' no tiene defi
     [VW_ProductosPrecios].[PrecioVenta] AS [PrecioVenta]
     FROM [dbo].[VW_ProductosPrecios] AS [VW_ProductosPrecios]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="vw_resumen" EntityType="Self.vw_resumen" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_resumen].[nombre] AS [nombre]
+    FROM [dbo].[vw_resumen] AS [vw_resumen]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_rol_opciones" EntityType="Self.vw_rol_opciones" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_rol_opciones].[rol] AS [rol], 
-    [vw_rol_opciones].[opcion] AS [opcion]
+    [vw_rol_opciones].[opcion] AS [opcion], 
+    [vw_rol_opciones].[id_rol] AS [id_rol]
     FROM [dbo].[vw_rol_opciones] AS [vw_rol_opciones]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_rol_usuario" EntityType="Self.vw_rol_usuario" store:Type="Views" store:Schema="dbo">

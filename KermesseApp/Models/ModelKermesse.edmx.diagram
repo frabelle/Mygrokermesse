@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="KERMESSEModel.tbl_tasacambio_det" Width="1.5" PointX="7.5" PointY="30.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.tbl_usuario" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_arqueocaja" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KERMESSEModel.vw_arqueocajadet" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_denominacion" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_gastos" Width="1.5" PointX="10.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_ingresocomdet" Width="1.5" PointX="11.75" PointY="2.125" IsExpanded="true" />
@@ -39,7 +38,6 @@
         <EntityTypeShape EntityType="KERMESSEModel.VW_Precios" Width="1.5" PointX="10.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.VW_Productos" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.VW_ProductosPrecios" Width="1.5" PointX="13.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KERMESSEModel.vw_rol_opciones" Width="1.5" PointX="13.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_rol_usuario" Width="1.5" PointX="14.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_tasacambio" Width="1.5" PointX="14.75" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_tasacambiodet" Width="1.5" PointX="14.75" PointY="15.125" IsExpanded="true" />
@@ -72,6 +70,9 @@
         <AssociationConnector Association="KERMESSEModel.FK_tbl_rol_usuario_tbl_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="KERMESSEModel.FK_tbl_tasacambio_det_tbl_tasacambio" ManuallyRouted="false" />
         <EntityTypeShape EntityType="KERMESSEModel.vw_cordoba" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_arqueocajadet" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_resumen" Width="1.5" PointX="16.375" PointY="3.75" />
+        <EntityTypeShape EntityType="KERMESSEModel.vw_rol_opciones" Width="1.5" PointX="14.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

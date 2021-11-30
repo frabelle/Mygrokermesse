@@ -12,10 +12,8 @@ namespace KermesseApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class vw_rol_opciones
+    public partial class vw_resumen
     {
-        public string rol { get; set; }
-        public string opcion { get; set; }
-        public int id_rol { get; set; }
+        public string nombre { get; set; }
     }
 }

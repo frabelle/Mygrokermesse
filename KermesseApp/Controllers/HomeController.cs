@@ -21,6 +21,11 @@ namespace KermesseApp.Controllers
             return View();
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
+
         private KERMESSEEntities db = new KERMESSEEntities();
 
         public ActionResult Reportes()
@@ -30,6 +35,7 @@ namespace KermesseApp.Controllers
             ViewBag.id_kermesse = new SelectList(db.vw_arqueocaja, "nombre", "nombre");
             ViewBag.id_listas = new SelectList(db.tbl_listaprecio, "id_listaprecio", "nombre");
             ViewBag.id_producto = new SelectList(db.tbl_productos, "id_producto", "nombre");
+            ViewBag.resumen = new SelectList(db.vw_resumen, "nombre", "nombre");
 
             return View();
         }

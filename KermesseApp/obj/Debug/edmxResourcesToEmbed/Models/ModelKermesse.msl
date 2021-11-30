@@ -303,18 +303,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vw_arqueocajadet">
-      <EntityTypeMapping TypeName="KERMESSEModel.vw_arqueocajadet">
-        <MappingFragment StoreEntitySet="vw_arqueocajadet">
-          <ScalarProperty Name="id_arqueocaja_det" ColumnName="id_arqueocaja_det" />
-          <ScalarProperty Name="id_ArqueoCaja" ColumnName="id_ArqueoCaja" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="vw_denominacion">
       <EntityTypeMapping TypeName="KERMESSEModel.vw_denominacion">
         <MappingFragment StoreEntitySet="vw_denominacion">
@@ -415,14 +403,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vw_rol_opciones">
-      <EntityTypeMapping TypeName="KERMESSEModel.vw_rol_opciones">
-        <MappingFragment StoreEntitySet="vw_rol_opciones">
-          <ScalarProperty Name="rol" ColumnName="rol" />
-          <ScalarProperty Name="opcion" ColumnName="opcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="vw_rol_usuario">
       <EntityTypeMapping TypeName="KERMESSEModel.vw_rol_usuario">
         <MappingFragment StoreEntitySet="vw_rol_usuario">
@@ -459,6 +439,34 @@
         <MappingFragment StoreEntitySet="vw_cordoba">
           <ScalarProperty Name="id_denominacion" ColumnName="id_denominacion" />
           <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_arqueocajadet">
+      <EntityTypeMapping TypeName="KERMESSEModel.vw_arqueocajadet">
+        <MappingFragment StoreEntitySet="vw_arqueocajadet">
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_arqueocaja_det" ColumnName="id_arqueocaja_det" />
+          <ScalarProperty Name="id_ArqueoCaja" ColumnName="id_ArqueoCaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_resumen">
+      <EntityTypeMapping TypeName="KERMESSEModel.vw_resumen">
+        <MappingFragment StoreEntitySet="vw_resumen">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_rol_opciones">
+      <EntityTypeMapping TypeName="KERMESSEModel.vw_rol_opciones">
+        <MappingFragment StoreEntitySet="vw_rol_opciones">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="opcion" ColumnName="opcion" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

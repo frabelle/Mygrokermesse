@@ -47,6 +47,50 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_ingresoscomTableAdapter" GeneratorDataComponentClassName="vw_ingresoscomTableAdapter" Name="vw_ingresoscom" UserDataComponentName="vw_ingresoscomTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KERMESSEConnectionString (Web.config)" DbObjectName="KERMESSE.dbo.vw_ingresoscom" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_ingreso_comunidad, Kermesse, Comunidad, Responsable_com, Producto, Cantidad_disponible, Cantidad_vendida, Total_Bonos FROM dbo.vw_ingresoscom</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_ingreso_comunidad" DataSetColumn="id_ingreso_comunidad" />
+              <Mapping SourceColumn="Kermesse" DataSetColumn="Kermesse" />
+              <Mapping SourceColumn="Comunidad" DataSetColumn="Comunidad" />
+              <Mapping SourceColumn="Responsable_com" DataSetColumn="Responsable_com" />
+              <Mapping SourceColumn="Producto" DataSetColumn="Producto" />
+              <Mapping SourceColumn="Cantidad_disponible" DataSetColumn="Cantidad_disponible" />
+              <Mapping SourceColumn="Cantidad_vendida" DataSetColumn="Cantidad_vendida" />
+              <Mapping SourceColumn="Total_Bonos" DataSetColumn="Total_Bonos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_gastosTableAdapter" GeneratorDataComponentClassName="vw_gastosTableAdapter" Name="vw_gastos" UserDataComponentName="vw_gastosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KERMESSEConnectionString (Web.config)" DbObjectName="KERMESSE.dbo.vw_gastos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_gasto, Kermesse, Categoria_gasto, fecha_gasto, concepto, monto FROM dbo.vw_gastos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_gasto" DataSetColumn="id_gasto" />
+              <Mapping SourceColumn="Kermesse" DataSetColumn="Kermesse" />
+              <Mapping SourceColumn="Categoria_gasto" DataSetColumn="Categoria_gasto" />
+              <Mapping SourceColumn="fecha_gasto" DataSetColumn="fecha_gasto" />
+              <Mapping SourceColumn="concepto" DataSetColumn="concepto" />
+              <Mapping SourceColumn="monto" DataSetColumn="monto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -55,7 +99,7 @@
   <xs:element name="dsRpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsRpt" msprop:Generator_UserDSName="dsRpt">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="vw_arqueocaja" msprop:Generator_TableClassName="vw_arqueocajaDataTable" msprop:Generator_TableVarName="tablevw_arqueocaja" msprop:Generator_TablePropName="vw_arqueocaja" msprop:Generator_RowDeletingName="vw_arqueocajaRowDeleting" msprop:Generator_RowChangingName="vw_arqueocajaRowChanging" msprop:Generator_RowEvHandlerName="vw_arqueocajaRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_arqueocajaRowDeleted" msprop:Generator_UserTableName="vw_arqueocaja" msprop:Generator_RowChangedName="vw_arqueocajaRowChanged" msprop:Generator_RowEvArgName="vw_arqueocajaRowChangeEvent" msprop:Generator_RowClassName="vw_arqueocajaRow">
+        <xs:element name="vw_arqueocaja" msprop:Generator_TableClassName="vw_arqueocajaDataTable" msprop:Generator_TableVarName="tablevw_arqueocaja" msprop:Generator_RowChangedName="vw_arqueocajaRowChanged" msprop:Generator_TablePropName="vw_arqueocaja" msprop:Generator_RowDeletingName="vw_arqueocajaRowDeleting" msprop:Generator_RowChangingName="vw_arqueocajaRowChanging" msprop:Generator_RowEvHandlerName="vw_arqueocajaRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_arqueocajaRowDeleted" msprop:Generator_RowClassName="vw_arqueocajaRow" msprop:Generator_UserTableName="vw_arqueocaja" msprop:Generator_RowEvArgName="vw_arqueocajaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_ArqueoCaja" msprop:Generator_ColumnVarNameInTable="columnid_ArqueoCaja" msprop:Generator_ColumnPropNameInRow="id_ArqueoCaja" msprop:Generator_ColumnPropNameInTable="id_ArqueoCajaColumn" msprop:Generator_UserColumnName="id_ArqueoCaja" type="xs:int" />
@@ -71,7 +115,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_arqueocajadet" msprop:Generator_TableClassName="vw_arqueocajadetDataTable" msprop:Generator_TableVarName="tablevw_arqueocajadet" msprop:Generator_TablePropName="vw_arqueocajadet" msprop:Generator_RowDeletingName="vw_arqueocajadetRowDeleting" msprop:Generator_RowChangingName="vw_arqueocajadetRowChanging" msprop:Generator_RowEvHandlerName="vw_arqueocajadetRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_arqueocajadetRowDeleted" msprop:Generator_UserTableName="vw_arqueocajadet" msprop:Generator_RowChangedName="vw_arqueocajadetRowChanged" msprop:Generator_RowEvArgName="vw_arqueocajadetRowChangeEvent" msprop:Generator_RowClassName="vw_arqueocajadetRow">
+        <xs:element name="vw_arqueocajadet" msprop:Generator_TableClassName="vw_arqueocajadetDataTable" msprop:Generator_TableVarName="tablevw_arqueocajadet" msprop:Generator_RowChangedName="vw_arqueocajadetRowChanged" msprop:Generator_TablePropName="vw_arqueocajadet" msprop:Generator_RowDeletingName="vw_arqueocajadetRowDeleting" msprop:Generator_RowChangingName="vw_arqueocajadetRowChanging" msprop:Generator_RowEvHandlerName="vw_arqueocajadetRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_arqueocajadetRowDeleted" msprop:Generator_RowClassName="vw_arqueocajadetRow" msprop:Generator_UserTableName="vw_arqueocajadet" msprop:Generator_RowEvArgName="vw_arqueocajadetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_ArqueoCaja" msprop:Generator_ColumnVarNameInTable="columnid_ArqueoCaja" msprop:Generator_ColumnPropNameInRow="id_ArqueoCaja" msprop:Generator_ColumnPropNameInTable="id_ArqueoCajaColumn" msprop:Generator_UserColumnName="id_ArqueoCaja" type="xs:int" />
@@ -101,11 +145,87 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="vw_ingresoscom" msprop:Generator_TableClassName="vw_ingresoscomDataTable" msprop:Generator_TableVarName="tablevw_ingresoscom" msprop:Generator_TablePropName="vw_ingresoscom" msprop:Generator_RowDeletingName="vw_ingresoscomRowDeleting" msprop:Generator_RowChangingName="vw_ingresoscomRowChanging" msprop:Generator_RowEvHandlerName="vw_ingresoscomRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_ingresoscomRowDeleted" msprop:Generator_UserTableName="vw_ingresoscom" msprop:Generator_RowChangedName="vw_ingresoscomRowChanged" msprop:Generator_RowEvArgName="vw_ingresoscomRowChangeEvent" msprop:Generator_RowClassName="vw_ingresoscomRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_ingreso_comunidad" msprop:Generator_ColumnVarNameInTable="columnid_ingreso_comunidad" msprop:Generator_ColumnPropNameInRow="id_ingreso_comunidad" msprop:Generator_ColumnPropNameInTable="id_ingreso_comunidadColumn" msprop:Generator_UserColumnName="id_ingreso_comunidad" type="xs:int" />
+              <xs:element name="Kermesse" msprop:Generator_ColumnVarNameInTable="columnKermesse" msprop:Generator_ColumnPropNameInRow="Kermesse" msprop:Generator_ColumnPropNameInTable="KermesseColumn" msprop:Generator_UserColumnName="Kermesse">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Comunidad" msprop:Generator_ColumnVarNameInTable="columnComunidad" msprop:Generator_ColumnPropNameInRow="Comunidad" msprop:Generator_ColumnPropNameInTable="ComunidadColumn" msprop:Generator_UserColumnName="Comunidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Responsable_com" msprop:Generator_ColumnVarNameInTable="columnResponsable_com" msprop:Generator_ColumnPropNameInRow="Responsable_com" msprop:Generator_ColumnPropNameInTable="Responsable_comColumn" msprop:Generator_UserColumnName="Responsable_com">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad_disponible" msprop:Generator_ColumnVarNameInTable="columnCantidad_disponible" msprop:Generator_ColumnPropNameInRow="Cantidad_disponible" msprop:Generator_ColumnPropNameInTable="Cantidad_disponibleColumn" msprop:Generator_UserColumnName="Cantidad_disponible" type="xs:int" />
+              <xs:element name="Cantidad_vendida" msprop:Generator_ColumnVarNameInTable="columnCantidad_vendida" msprop:Generator_ColumnPropNameInRow="Cantidad_vendida" msprop:Generator_ColumnPropNameInTable="Cantidad_vendidaColumn" msprop:Generator_UserColumnName="Cantidad_vendida" type="xs:int" />
+              <xs:element name="Total_Bonos" msprop:Generator_ColumnVarNameInTable="columnTotal_Bonos" msprop:Generator_ColumnPropNameInRow="Total_Bonos" msprop:Generator_ColumnPropNameInTable="Total_BonosColumn" msprop:Generator_UserColumnName="Total_Bonos" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vw_gastos" msprop:Generator_TableClassName="vw_gastosDataTable" msprop:Generator_TableVarName="tablevw_gastos" msprop:Generator_TablePropName="vw_gastos" msprop:Generator_RowDeletingName="vw_gastosRowDeleting" msprop:Generator_RowChangingName="vw_gastosRowChanging" msprop:Generator_RowEvHandlerName="vw_gastosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_gastosRowDeleted" msprop:Generator_UserTableName="vw_gastos" msprop:Generator_RowChangedName="vw_gastosRowChanged" msprop:Generator_RowEvArgName="vw_gastosRowChangeEvent" msprop:Generator_RowClassName="vw_gastosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_gasto" msprop:Generator_ColumnVarNameInTable="columnid_gasto" msprop:Generator_ColumnPropNameInRow="id_gasto" msprop:Generator_ColumnPropNameInTable="id_gastoColumn" msprop:Generator_UserColumnName="id_gasto" type="xs:int" />
+              <xs:element name="Kermesse" msprop:Generator_ColumnVarNameInTable="columnKermesse" msprop:Generator_ColumnPropNameInRow="Kermesse" msprop:Generator_ColumnPropNameInTable="KermesseColumn" msprop:Generator_UserColumnName="Kermesse">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Categoria_gasto" msprop:Generator_ColumnVarNameInTable="columnCategoria_gasto" msprop:Generator_ColumnPropNameInRow="Categoria_gasto" msprop:Generator_ColumnPropNameInTable="Categoria_gastoColumn" msprop:Generator_UserColumnName="Categoria_gasto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha_gasto" msprop:Generator_ColumnVarNameInTable="columnfecha_gasto" msprop:Generator_ColumnPropNameInRow="fecha_gasto" msprop:Generator_ColumnPropNameInTable="fecha_gastoColumn" msprop:Generator_UserColumnName="fecha_gasto" type="xs:dateTime" />
+              <xs:element name="concepto" msprop:Generator_ColumnVarNameInTable="columnconcepto" msprop:Generator_ColumnPropNameInRow="concepto" msprop:Generator_ColumnPropNameInTable="conceptoColumn" msprop:Generator_UserColumnName="concepto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:vw_arqueocaja" />
       <xs:field xpath="mstns:id_ArqueoCaja" />
+    </xs:unique>
+    <xs:unique name="vw_ingresoscom_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vw_ingresoscom" />
+      <xs:field xpath="mstns:id_ingreso_comunidad" />
+    </xs:unique>
+    <xs:unique name="vw_gastos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vw_gastos" />
+      <xs:field xpath="mstns:id_gasto" />
     </xs:unique>
   </xs:element>
 </xs:schema>

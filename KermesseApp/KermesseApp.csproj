@@ -152,10 +152,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\Tbl_ArqueoCajaController.cs" />
     <Compile Include="Controllers\Tbl_DenominacionController.cs" />
     <Compile Include="Controllers\Tbl_monedaController.cs" />
     <Compile Include="Controllers\Tbl_TasaCambioController.cs" />
+    <Compile Include="Controllers\Tbl_UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +279,9 @@
       <DependentUpon>ModelKermesse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VW_ProductosPrecios.cs">
+      <DependentUpon>ModelKermesse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_resumen.cs">
       <DependentUpon>ModelKermesse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vw_rol_opciones.cs">
@@ -2065,6 +2070,7 @@
     <Content Include="Content\img\caja-banner.png" />
     <Content Include="Content\img\denominacion-banner.png" />
     <Content Include="Content\img\DenominacionIcon.png" />
+    <Content Include="Content\img\fondologin.png" />
     <Content Include="Content\img\reportes-banner.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logoicon.png" />
@@ -2272,9 +2278,12 @@
     <Content Include="Views\Tbl_ArqueoCaja\EditArqueoCajaMaestro2.cshtml" />
     <Content Include="Views\Tbl_ArqueoCaja\Vw_ArqueoCajaDet.cshtml" />
     <Content Include="Views\Tbl_ArqueoCaja\InsertArqueoCajaDet.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Tbl_Usuario\ViewLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -2290,6 +2299,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\rptArqueoCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\rptResumen.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

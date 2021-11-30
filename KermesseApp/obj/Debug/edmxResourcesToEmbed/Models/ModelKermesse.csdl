@@ -336,22 +336,6 @@
     <Property Name="fechaArqueo" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="granTotal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
-  <EntityType Name="vw_arqueocajadet">
-    <Key>
-      <PropertyRef Name="id_ArqueoCaja" />
-      <PropertyRef Name="nombre" />
-      <PropertyRef Name="valor" />
-      <PropertyRef Name="cantidad" />
-      <PropertyRef Name="subtotal" />
-      <PropertyRef Name="id_arqueocaja_det" />
-    </Key>
-    <Property Name="id_ArqueoCaja" Type="Int32" Nullable="false" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="valor" Type="String" MaxLength="52" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="cantidad" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="subtotal" Type="String" MaxLength="44" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="id_arqueocaja_det" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="vw_denominacion">
     <Key>
       <PropertyRef Name="id_Denominacion" />
@@ -486,14 +470,6 @@
     <Property Name="Costo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="ListaPrecio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PrecioVenta" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-  </EntityType>
-  <EntityType Name="vw_rol_opciones">
-    <Key>
-      <PropertyRef Name="rol" />
-      <PropertyRef Name="opcion" />
-    </Key>
-    <Property Name="rol" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="opcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="vw_rol_usuario">
     <Key>
@@ -892,7 +868,6 @@
     <EntitySet Name="tbl_tasacambio_det" EntityType="Self.tbl_tasacambio_det" />
     <EntitySet Name="tbl_usuario" EntityType="Self.tbl_usuario" />
     <EntitySet Name="vw_arqueocaja" EntityType="Self.vw_arqueocaja" />
-    <EntitySet Name="vw_arqueocajadet" EntityType="Self.vw_arqueocajadet" />
     <EntitySet Name="vw_denominacion" EntityType="Self.vw_denominacion" />
     <EntitySet Name="vw_gastos" EntityType="Self.vw_gastos" />
     <EntitySet Name="vw_ingresocomdet" EntityType="Self.vw_ingresocomdet" />
@@ -901,7 +876,6 @@
     <EntitySet Name="VW_Precios" EntityType="Self.VW_Precios" />
     <EntitySet Name="VW_Productos" EntityType="Self.VW_Productos" />
     <EntitySet Name="VW_ProductosPrecios" EntityType="Self.VW_ProductosPrecios" />
-    <EntitySet Name="vw_rol_opciones" EntityType="Self.vw_rol_opciones" />
     <EntitySet Name="vw_rol_usuario" EntityType="Self.vw_rol_usuario" />
     <EntitySet Name="vw_tasacambio" EntityType="Self.vw_tasacambio" />
     <EntitySet Name="vw_tasacambiodet" EntityType="Self.vw_tasacambiodet" />
@@ -1018,6 +992,9 @@
       <End Role="tbl_tasacambio_det" EntitySet="tbl_tasacambio_det" />
     </AssociationSet>
     <EntitySet Name="vw_cordoba" EntityType="KERMESSEModel.vw_cordoba" />
+    <EntitySet Name="vw_arqueocajadet" EntityType="KERMESSEModel.vw_arqueocajadet" />
+    <EntitySet Name="vw_resumen" EntityType="KERMESSEModel.vw_resumen" />
+    <EntitySet Name="vw_rol_opciones" EntityType="KERMESSEModel.vw_rol_opciones" />
   </EntityContainer>
   <EntityType Name="vw_cordoba">
     <Key>
@@ -1026,5 +1003,37 @@
     </Key>
     <Property Name="valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="id_denominacion" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_arqueocajadet">
+    <Key>
+      <PropertyRef Name="id_ArqueoCaja" />
+      <PropertyRef Name="id_arqueocaja_det" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="valor" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subtotal" />
+    </Key>
+    <Property Name="id_ArqueoCaja" Type="Int32" Nullable="false" />
+    <Property Name="id_arqueocaja_det" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="valor" Type="String" Nullable="false" MaxLength="52" FixedLength="false" Unicode="true" />
+    <Property Name="cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="subtotal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_resumen">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_rol_opciones">
+    <Key>
+      <PropertyRef Name="rol" />
+      <PropertyRef Name="opcion" />
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="rol" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="opcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_rol" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

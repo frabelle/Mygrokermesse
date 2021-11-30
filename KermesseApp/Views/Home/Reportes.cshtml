@@ -232,7 +232,7 @@
                     <button id="closeArqueo" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                @using (Html.BeginForm("VerRptArqueoCaja", "Tbl_ArqueoCaja", FormMethod.Post))
+                @using (Html.BeginForm("VerRptArqueoCaja", "Reportes", FormMethod.Post))
                 {
                     <div class="modal-body">
 
@@ -277,31 +277,37 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Generar reporte de ingresos y egresos</h5>
                     <button id="closeResumen" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
 
-                    <label class="small mb-2">Seleccione la opción por la que desea filtrar</label>
+                @using (Html.BeginForm("VerRptResumen", "Reportes", FormMethod.Post))
+                {
+                    <div class="modal-body">
 
-                    <br>
+                        <label class="small mb-2">Seleccione la opción por la que desea filtrar</label>
 
-                    <div class="col">
-                        <label class="small mb-1">Kermesse: </label>
-                        @Html.DropDownList("nombre", ViewBag.id_kermeses as SelectList, htmlAttributes: new { @class = "form-select", @id = "cbxKermesse", @name = "cbxKermesse" })
+                        <br>
+
+                        <div class="col">
+                            <label class="small mb-1">Kermesse: </label>
+                            @Html.DropDownList("nombre", ViewBag.resumen as SelectList, htmlAttributes: new { @class = "form-select", @id = "cbxKermesseR", @name = "cbxKermesseR" })
+                        </div>
+
+                        <input id="kermesseResumen" name="kermesseResumen" type="text" hidden />
+
                     </div>
+                    <div class="modal-footer">
+                        <div class="col-2">
+                            <select class="form-select" name="tipo" id="tipo" required>
+                                <option value="PDF">PDF</option>
+                                <option value="Word">Word</option>
+                                <option value="Excel">Excel</option>
+                            </select>
+                        </div>
 
+                        <div class="col-3.5">
+                            <button type="submit" class="btn btn-outline-primary">Generar reporte</button>
+                        </div>
+                    </div>
+                }
                 </div>
-                <div class="modal-footer">
-                    <div class="col-2">
-                        <select class="form-select" name="tipo" id="tipo" required>
-                            <option value="PDF">PDF</option>
-                            <option value="Word">Word</option>
-                            <option value="Excel">Excel</option>
-                        </select>
-                    </div>
-
-                    <div class="col-3.5">
-                        <button type="submit" class="btn btn-outline-primary">Generar reporte</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>

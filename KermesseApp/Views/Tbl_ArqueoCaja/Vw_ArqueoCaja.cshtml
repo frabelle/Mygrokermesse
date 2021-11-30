@@ -4,6 +4,47 @@
     ViewBag.Title = "Lista de Arqueos de Caja";
 }
 
+@using KermesseApp.Models;
+
+@{ /*Instanciamos objetos y variables */
+    KERMESSEEntities db = new KERMESSEEntities();
+    tbl_usuario tu = new tbl_usuario();
+    tbl_rol_usuario tru = new tbl_rol_usuario();
+    List<vw_rol_opciones> listopc = new List<vw_rol_opciones>();
+    Int32 idRol = 0;
+    String opcion = "";
+    Int32 longitud = 0;
+    Boolean acceso = false;
+
+    /* Obtenemos la sesion */
+    tu = Session["usuario"] as tbl_usuario;
+
+    /* Obtenemos el rol del usuario*/
+    tru = db.tbl_rol_usuario.Where(x => x.id_usuario.Equals(tu.id_usuario)).FirstOrDefault();
+    idRol = tru.id_rol;
+    /* Obtenemos la lista de opciones del rol*/
+    listopc = db.vw_rol_opciones.Where(x => x.id_rol.Equals(idRol)).ToList();
+
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    string[] separado = url.Split('/');
+    string opcionActual = separado[separado.Length - 1];
+
+    longitud = listopc.Count();//Obtenemos la cantidad de elementos
+    for (int i = 0; i < longitud; i++)
+    {
+        //obtenemos la columna opcion de la matriz y/o lista de elementos
+        opcion = listopc[i].opcion;
+        if (opcionActual.Equals(opcion)) //COMPARAMOS LA OPCION ACTUAL CON CADA OPCIÓN DE LA MATRIZ
+        {
+            acceso = true; //ACCESO CONCEDIDO
+            break;
+        }
+    }
+    if (!acceso)
+    {
+        Response.Redirect("~/Home/Error");
+    } }
+
 <div class="container-fluid">
     <h1 class="mt-4">Gestión de Arqueo de Caja</h1>
     <ol class="breadcrumb mb-4">
@@ -24,14 +65,14 @@
                     <div class="row p-4 no-gutters justify-content-between align-items-center">
 
                         <div class="col-md-8">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="search" placeholder="Buscar una arqueo de caja">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
+                            @*<div class="input-group">
+                                    <input type="text" class="form-control" id="search" placeholder="Buscar una arqueo de caja">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>*@
                         </div>
                         <div class="col-md-4">
 
@@ -76,7 +117,8 @@
                                            title="Modificar los datos del encabezado">
                                             <button class="btn btn-sm btn-outline-primary rounded-circle">
                                                 <i class="fas fa-pencil-alt"></i>
-                                            </button></a>
+                                            </button>
+                                        </a>
 
                                         &nbsp;
 
@@ -84,7 +126,8 @@
                                            title="Ver detalle Arqueo de Caja">
                                             <button class="btn btn-sm btn-outline-primary rounded-circle">
                                                 <i class="fas fa-eye"></i>
-                                            </button></a>
+                                            </button>
+                                        </a>
 
                                         &nbsp;
 
@@ -92,7 +135,8 @@
                                            title="Generar reporte de Arqueo de Caja">
                                             <button class="btn btn-sm btn-outline-primary rounded-circle">
                                                 <i class="fas fa-file-alt"></i>
-                                            </button></a>
+                                            </button>
+                                        </a>
 
                                         &nbsp;
 
@@ -100,7 +144,8 @@
                                            title="Eliminar Arqueo de Caja">
                                             <button class="btn btn-sm btn-outline-danger rounded-circle">
                                                 <i class="fas fa-trash-alt"></i>
-                                            </button></a>
+                                            </button>
+                                        </a>
 
                                     </td>
                                 </tr>

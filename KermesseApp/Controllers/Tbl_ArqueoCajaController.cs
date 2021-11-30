@@ -230,45 +230,5 @@ namespace KermesseApp.Controllers
             return View("Vw_ArqueoCaja", list);
         }
 
-        [HttpPost]
-        public ActionResult VerRptArqueoCaja(String tipo, String kermesseArqueo)
-        {
-            LocalReport rpt = new LocalReport();
-            string mt, enc, f;
-            string[] s;
-            Warning[] w;
-
-            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "rptArqueoCaja.rdlc");
-            rpt.ReportPath = ruta;
-
-            ReportDataSource rd = null;
-            ReportDataSource rd2 = null;
-
-            if (kermesseArqueo == null)
-            {
-                RedirectToAction("Vw_ArqueoCaja");   
-            }
-            else
-            {
-                vw_arqueocaja arqueo = new vw_arqueocaja();
-                tbl_arqueocaja tbl_arqueo = new tbl_arqueocaja();
-
-                arqueo = db.vw_arqueocaja.Where(x => x.nombre == kermesseArqueo).First();
-                //arqueo = db.vw_arqueocaja.Where(x => x.id_ArqueoCaja == tbl_arqueo.id_arqueocaja).First();
-                var encabezado = db.vw_arqueocaja.Where(x => x.id_ArqueoCaja == arqueo.id_ArqueoCaja);
-                rd = new ReportDataSource("dsRptArqueoCaja", encabezado);
-
-                var detalle = db.vw_arqueocajadet.Where(x => x.id_ArqueoCaja == arqueo.id_ArqueoCaja);
-                rd2 = new ReportDataSource("dsRptArqueoCajaDet", detalle);
-            }
-
-            rpt.DataSources.Add(rd);
-            rpt.DataSources.Add(rd2);
-
-            //String tipo = "PDF";
-            var b = rpt.Render(tipo, null, out mt, out enc, out f, out s, out w);
-            return new FileContentResult(b, mt);
-        }
-
     }
 }

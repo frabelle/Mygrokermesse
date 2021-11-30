@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@{ var nom = @ViewBag.title;
+    string rem = nom.Replace("Tbl_", " ");
+    Console.WriteLine(rem); }
+
+@using KermesseApp.Models;
+
+@{ /*Instanciamos objetos y variables */
+                KERMESSEEntities db = new KERMESSEEntities();
+                tbl_usuario tu = new tbl_usuario();
+                /* Obtenemos la sesion */
+                tu = Session["usuario"] as tbl_usuario; }
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,13 +38,11 @@
                 <img src="~/Content/img/logonombre2.png" alt="" width="150" class="d-inline-block align-text-top">
             </a>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle link-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="bi-person-circle h2"></i>
+                <a class="nav-link dropdown-toggle link-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                    <i class="bi-person-circle h2"></i> @tu.usuario
                 </a>
                 <ul class="dropdown-menu text-small shadow dropdown" aria-labelledby="dropdown">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Logout", "Tbl_Usuario")">Desconectarse...</a></li>
                 </ul>
             </div>
         </div>
@@ -197,15 +207,35 @@
     $(document).ready(function () {
 
         $('#tbl').DataTable({
-            searching: false,
+            searching: true,
             dom: 'Bfrtip',
             pageLength: 10,
             buttons: [{
-                extend: 'pdf', text: '<i class="fas fa-file-pdf" style="margin-right:10px"></i>Descargar como PDF', titleAttr: 'PDF', className: 'btn btn2'
-            },
-            { extend: 'excel', text: '<i class="fas fa-file-excel" style="margin-right:10px"></i>Descargar como Excel', titleAttr: 'Excel', className: 'btn btn2' },
-            { extend: 'print', text: '<i class="fas fa-print" style="margin-right:10px"></i>Imprimir tabla', titleAttr: 'Imprimir', className: 'btn btn2' }
-            ],
+                    extend: 'pdf', text: '<i class="fas fa-file-pdf" style="margin-right:10px"></i>Descargar como PDF',
+                    title: "Informe - " + "@rem",
+                    messageTop: "Reporte de datos",
+                    exportOptions: {
+                        columns: ':not(:last-child)',
+                    }, titleAttr: 'PDF', className: 'btn btn2'
+                },
+                {
+                    extend: 'excel', text: '<i class="fas fa-file-excel" style="margin-right:10px"></i>Descargar como Excel',
+                    title: "Informe - " + "@rem",
+                    messageTop: "Reporte de datos",
+                    exportOptions: {
+                        columns: ':not(:last-child)',
+                    }
+                    , titleAttr: 'Excel', className: 'btn btn2'
+                },
+                {
+                    extend: 'print', text: '<i class="fas fa-print" style="margin-right:10px"></i>Imprimir tabla',
+                    title: "Informe - " + "@rem",
+                    messageTop: "Reporte de datos",
+                    exportOptions: {
+                        columns: ':not(:last-child)',
+                    }, titleAttr: 'Imprimir', className: 'btn btn2'
+                }
+                ],
 
             initComplete: function () {
                 var btns = $('.dt-button');
@@ -220,7 +250,12 @@
             var id = $("#cbxKermesseA option:selected").text();
             $("#kermesseArqueo").val(id);
         })
-        
+
+        $("#cbxKermesseR").change(function () {
+            var id2 = $("#cbxKermesseR option:selected").text();
+            $("#kermesseResumen").val(id2);
+        })
+
         eliminarFila();
         calcularTotal();
         setValores();
@@ -350,6 +385,9 @@
 
         var id = $("#cbxKermesseA option:selected").text();
         $("#kermesseArqueo").val(id);
+
+        var id2 = $("#cbxKermesseR option:selected").text();
+        $("#kermesseResumen").val(id2);
     }
 </script>
 
